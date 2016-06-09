@@ -1,0 +1,86 @@
+{% extends "@App/base_layout.html.twig" %}
+
+{% block extraCss %}
+    .radio_item{
+    display: none !important;
+    }
+
+    .label_item {
+    opacity: 0.5;
+    }
+
+    .radio_item:checked + label {
+    opacity: 1;
+    }
+
+    label {
+    cursor: pointer;
+    }
+{% endblock %}
+
+{% block content %}
+    <div class="ui center aligned segment">
+        <div class="ui center aligned grid">
+            <div class="ui six wide column">
+                <h2 class="ui blue image header">
+                    <img src="{{ asset('images/logo.png') }}" class="image">
+                    <div class="content">
+                        Dokończ swoją rejestrację
+                    </div>
+                </h2>
+                {{ form_start(form, {'attr': {'class': 'ui large form'}}) }}
+                    <div class="ui stacked segment">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                {{ form_row(form.username) }}
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                {{ form_row(form.plainPassword.first) }}
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                {{ form_row(form.plainPassword.second) }}
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="mail icon"></i>
+                                {{ form_row(form.email) }}
+                            </div>
+                        </div>
+
+                        <div class="ui segment">
+                            <div class="ui tiny images">
+                                <input type="radio" class="radio_item" value="1" name="avatar" id="av1">
+                                <label class="label_item" for="av1"><img class="ui circular image" src="{{ asset('images/avatar/1.jpg') }}"></label>
+                                <input type="radio" class="radio_item" value="2" name="avatar" id="av2">
+                                <label class="label_item" for="av2"><img class="ui circular image" src="{{ asset('images/avatar/2.jpg') }}"></label>
+                                <input type="radio" class="radio_item" value="3" name="avatar" id="av3">
+                                <label class="label_item" for="av3"><img class="ui circular image" src="{{ asset('images/avatar/3.jpg') }}"></label>
+                                <input type="radio" class="radio_item" value="4" name="avatar" id="av4">
+                                <label class="label_item" for="av4"><img class="ui circular image" src="{{ asset('images/avatar/4.jpg') }}"></label>
+                                <input type="radio" class="radio_item" value="5" name="avatar" id="av5">
+                                <label class="label_item" for="av5"><img class="ui circular image" src="{{ asset('images/avatar/5.jpg') }}"></label>
+                                <input type="radio" class="radio_item" value="6" name="avatar" id="av6">
+                                <label class="label_item" for="av6"><img class="ui circular image" src="{{ asset('images/avatar/6.jpg') }}"></label>
+                                <input type="radio" class="radio_item" value="7" name="avatar" id="av7">
+                                <label class="label_item" for="av7"><img class="ui circular image" src="{{ asset('images/avatar/7.jpg') }}"></label>
+                                <input type="radio" class="radio_item" value="8" name="avatar" id="av8">
+                                <label class="label_item" for="av8"><img class="ui circular image" src="{{ asset('images/avatar/8.jpg') }}"></label>
+                                <input type="radio" class="radio_item" value="9" name="avatar" id="av9">
+                                <label class="label_item" for="av9"><img class="ui circular image" src="{{ asset('images/avatar/9.jpg') }}"></label>
+                            </div>
+                        </div>
+                        <input type="submit" class="ui fluid large blue submit button" value="Zarejestruj">
+                    </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

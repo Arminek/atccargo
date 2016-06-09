@@ -1,0 +1,49 @@
+{% extends "@App/base_layout.html.twig" %}
+
+{% block content %}
+  <div class="ui center aligned segment">
+    <div class="ui center aligned grid">
+      <div class="ui six wide column">
+        <h2 class="ui blue image header">
+          <img src="{{ asset('images/logo.png') }}" class="image">
+          <div class="content">
+            Zaloguj się na swoje konto
+          </div>
+        </h2>
+        <form class="ui large form" action="{{ path('login') }}" method="POST">
+          <div class="ui stacked segment">
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="user icon"></i>
+                <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Login">
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="lock icon"></i>
+                <input type="password" id="password" name="_password" placeholder="Hasło">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+              </div>
+            </div>
+            <div class="ui error message"></div>
+
+            {% if error %}
+              <div class="ui negative message">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            {% for flash_message in app.session.flashBag.get('notice') %}
+              <div class="flash-notice">
+                {{ flash_message }}
+              </div>
+            {% endfor %}
+
+            <input type="submit" class="ui fluid large blue submit button" value="Zaloguj">
+          </div>
+        </form>
+        <div class="ui info message">
+          Posiadasz klucz weryfikacyjny? <a href="{{ path('register_verification') }}">Zarejestruj sie</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

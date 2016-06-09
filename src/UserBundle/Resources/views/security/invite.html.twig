@@ -1,0 +1,65 @@
+{% extends "@App/base_layout.html.twig" %}
+
+{% block navbar %}
+  <div class="ui blue inverted menu">
+    <a class="item" href="{{ path('home') }}"><i class="suitcase icon"></i>Karta kierowcy</a>
+    <a class="item" href="newTransport.php"><i class="add square icon"></i>Zgłoś nowy transport</a>
+    <a class="item" href="myTransports.php"><i class="cube icon"></i>Twoje transporty</a>
+    <a class="item" href="listDrivers.php"><i class="world icon"></i>Lista kierowców</a>
+    <a class="item" href="statsDrivers.php"><i class="area chart icon"></i>Statystyki kierowców</a>
+    <div class="right menu">
+      <div class="ui dropdown item">
+        <i class="user icon"></i>Witaj, {{ app.user.username }}<i class="dropdown icon"></i>
+        <div class="ui menu">
+          <a class="item" href=""></i>Zobacz profil</a>
+          <div class="ui divider"></div>
+          <a class="active item" href="{{ path('employee_add') }}"></i>Dodaj pracownika</a>
+          <a class="item" href=""></i>Przeglądaj zlecenia</a>
+          <a class="item" href=""></i>Przeglądaj kierowców</a>
+          <div class="ui divider"></div>
+          <a class="item" href="{{ path('logout') }}">Wyloguj się</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="ui center aligned grid">
+    <div class="six wide column">
+      <h1 class="ui blue image header">
+        <i class="blue square add icon"></i>
+        <div class="content">
+          Dodawanie pracownika
+        </div>
+      </h1>
+
+      <div class="ui stacked segment">
+        {{ form_start(form, {'attr': {'class': 'ui large form'}}) }}
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="mail icon"></i>
+              {{ form_row(form.email) }}
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui selection dropdown">
+              {{ form_row(form.role) }}
+              <i class="dropdown icon"></i>
+              <div class="default text">Stanowisko</div>
+              <div class="menu">
+                <div class="item">Szef</div>
+                <div class="item">V-CE Szef</div>
+                <div class="item">Dyspozytor</div>
+                <div class="item">Kierowca</div>
+                <div class="item">Okres testowy</div>
+              </div>
+            </div>
+          </div>
+          <input type="submit" value="Dodaj pracownika" class="ui blue fluid large button">
+        {{ form_end(form) }}
+      </div>
+    </div>
+  </div>
+{% endblock %}
+

@@ -1,0 +1,7 @@
+app:
+    path: /
+    defaults: { _controller: AppBundle:Default:select }
+
+dashboard:
+    path: /dashboard
+    defaults: { _controller: AppBundle:Dashboard:show }
