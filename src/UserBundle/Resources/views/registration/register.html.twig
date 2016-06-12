@@ -1,15 +1,15 @@
 {% extends "@App/base_layout.html.twig" %}
 
 {% block extraCss %}
-    .radio_item{
+    input[type="radio"] {
     display: none !important;
     }
 
-    .label_item {
+    #user_avatar label {
     opacity: 0.5;
     }
 
-    .radio_item:checked + label {
+    #user_avatar_0:checked + label, #user_avatar_1:checked + label, #user_avatar_2:checked + label, #user_avatar_3:checked + label, #user_avatar_4:checked + label, #user_avatar_5:checked + label, #user_avatar_6:checked + label, #user_avatar_7:checked + label, #user_avatar_8:checked + label {
     opacity: 1;
     }
 
@@ -17,6 +17,30 @@
     cursor: pointer;
     }
 {% endblock %}
+
+{% form_theme form _self %}
+
+{%- block form_label -%}
+    {% if label is not same as(false) -%}
+        {% if not compound -%}
+            {% set label_attr = label_attr|merge({'for': id}) %}
+        {%- endif -%}
+        {% if required -%}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+        {%- endif -%}
+        {% if label is empty -%}
+            {%- if label_format is not empty -%}
+                {% set label = label_format|replace({
+                '%name%': name,
+                '%id%': id,
+                }) %}
+            {%- else -%}
+                {% set label = name|humanize %}
+            {%- endif -%}
+        {%- endif -%}
+        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}><img class="ui circular image" src="{{ asset('images/avatar/') }}{{ id|last }}.jpg">{{ translation_domain is same as(false) ? label : label|trans({}, translation_domain) }}</label>
+    {%- endif -%}
+{%- endblock form_label -%}
 
 {% block content %}
     <div class="ui center aligned segment">
@@ -57,7 +81,7 @@
 
                         <div class="ui segment">
                             <div class="ui tiny images">
-                                <input type="radio" class="radio_item" value="1" name="avatar" id="av1">
+                                {#<input type="radio" class="radio_item" value="1" name="avatar" id="av1">
                                 <label class="label_item" for="av1"><img class="ui circular image" src="{{ asset('images/avatar/1.jpg') }}"></label>
                                 <input type="radio" class="radio_item" value="2" name="avatar" id="av2">
                                 <label class="label_item" for="av2"><img class="ui circular image" src="{{ asset('images/avatar/2.jpg') }}"></label>
@@ -74,7 +98,8 @@
                                 <input type="radio" class="radio_item" value="8" name="avatar" id="av8">
                                 <label class="label_item" for="av8"><img class="ui circular image" src="{{ asset('images/avatar/8.jpg') }}"></label>
                                 <input type="radio" class="radio_item" value="9" name="avatar" id="av9">
-                                <label class="label_item" for="av9"><img class="ui circular image" src="{{ asset('images/avatar/9.jpg') }}"></label>
+                                <label class="label_item" for="av9"><img class="ui circular image" src="{{ asset('images/avatar/9.jpg') }}"></label>#}
+                                {{ form_row(form.avatar) }}
                             </div>
                         </div>
                         <input type="submit" class="ui fluid large blue submit button" value="Zarejestruj">

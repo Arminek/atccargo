@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="driver_card">
+                <source>Driver card</source>
+                <target>Karta kierowcy</target>
+            </trans-unit>
+            <trans-unit id="report_new_transport">
+                 <source>Report new transport</source>
+                 <target>Zgłoś nowy transport</target>
+            </trans-unit>
+            <trans-unit id="your_transports">
+                 <source>Your transports</source>
+                 <target>Twoje transporty</target>
+            </trans-unit>
+            <trans-unit id="list_of_drivers">
+                  <source>List of drivers</source>
+                  <target>Lista kierowców</target>
+            </trans-unit>
+            <trans-unit id="driver_statistics">
+                  <source>Driver statistics</source>
+                  <target>Statystyki kierowców</target>
+            </trans-unit>
+            <trans-unit id="hello">
+                  <source>Hello,</source>
+                  <target>Witaj,</target>
+            </trans-unit>
+            <trans-unit id="show_profile">
+                  <source>Show profile</source>
+                  <target>Zobacz profil</target>
+            </trans-unit>
+            <trans-unit id="add_employee">
+                  <source>Add employee</source>
+                  <target>Dodaj pracownika</target>
+            </trans-unit>
+            <trans-unit id="browse_transports">
+                  <source>Browse transports</source>
+                  <target>Przeglądaj transporty</target>
+            </trans-unit>
+            <trans-unit id="browse_employees">
+                  <source>Browse employees</source>
+                  <target>Przeglądaj kierowców</target>
+            </trans-unit>
+            <trans-unit id="sign_out">
+                  <source>Sign out</source>
+                  <target>Wyloguj się</target>
+            </trans-unit>
+            <trans-unit id="made_transports">
+                  <source>Made transports</source>
+                  <target>Wykonanych transportów</target>
+            </trans-unit>
+            <trans-unit id="earned_money">
+                  <source>Earned money</source>
+                  <target>Zarobionych pieniędzy</target>
+            </trans-unit>
+            <trans-unit id="travelled_distance">
+                  <source>Travelled distance</source>
+                  <target>Przejechanych kilometrów</target>
+            </trans-unit>
+            <trans-unit id="fuel_burned">
+                  <source>Fuel burned</source>
+                  <target>Spalonego paliwa</target>
+            </trans-unit>
+            <trans-unit id="last_transports">
+                  <source>Last transports</source>
+                  <target>Ostatnie transporty</target>
+            </trans-unit>
+            <trans-unit id="realized_transport_with_id">
+                  <source>Realized transport with id:</source>
+                  <target>Wykonanie transportu o identyfikatorze:</target>
+            </trans-unit>
+            <trans-unit id="transport_a_cargo">
+                  <source>Transport cargo</source>
+                  <target>Transport towaru</target>
+            </trans-unit>
+            <trans-unit id="from">
+                  <source>from</source>
+                  <target>z</target>
+            </trans-unit>
+            <trans-unit id="to">
+                  <source>to</source>
+                  <target>do</target>
+            </trans-unit>
+            <trans-unit id="mileage">
+                  <source>Mileage</source>
+                  <target>Pokonany dystans</target>
+            </trans-unit>
+            <trans-unit id="with_a_cargo_weighing">
+                  <source>with a cargo weighing</source>
+                  <target>z ładunkiem o wadze</target>
+            </trans-unit>
+            <trans-unit id="details">
+                  <source>Details</source>
+                  <target>Szczegóły</target>
+            </trans-unit>
+            <trans-unit id="adding_an_employee">
+                  <source>Adding an employee</source>
+                  <target>Dodawanie pracownika</target>
+            </trans-unit>
+            <trans-unit id="position">
+                  <source>Position</source>
+                  <target>Stanowisko</target>
+            </trans-unit>
+            <trans-unit id="password">
+                  <source>Password</source>
+                  <target>Hasło</target>
+            </trans-unit>
+            <trans-unit id="boss">
+                  <source>Boss</source>
+                  <target>Szef</target>
+            </trans-unit>
+            <trans-unit id="vice_boss">
+                  <source>Vice Boss</source>
+                  <target>Vice Szef</target>
+            </trans-unit>
+            <trans-unit id="dispatcher">
+                  <source>Dispatcher</source>
+                  <target>Dyspozytor</target>
+            </trans-unit>
+            <trans-unit id="driver">
+                  <source>Driver</source>
+                  <target>Kierowca</target>
+            </trans-unit>
+            <trans-unit id="demo">
+                  <source>Demo</source>
+                  <target>Okres testowy</target>
+            </trans-unit>
+            <trans-unit id="change_password">
+                  <source>Change password</source>
+                  <target>Zmień hasło</target>
+            </trans-unit>
+            <trans-unit id="change_email">
+                  <source>Change email</source>
+                  <target>Zmień email</target>
+            </trans-unit>
+            <trans-unit id="change_avatar">
+                  <source>Change avatar</source>
+                  <target>Zmień avatar</target>
+            </trans-unit>
+            <trans-unit id="your_data">
+                  <source>Your data</source>
+                  <target>Twoje dane</target>
+            </trans-unit>
+            <trans-unit id="email">
+                  <source>Email</source>
+                  <target>Email</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

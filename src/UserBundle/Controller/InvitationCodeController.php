@@ -37,7 +37,7 @@ class InvitationCodeController extends Controller
         $session->set('DURING_REGISTER', true);
         $session->set('email', $formEmail);
         $session->set('code', $formCode);
-        $session->set('ROLE', 'Szef');
+        $session->set('roles', 'Szef');
 
         return $this->redirectToRoute('register');
       }

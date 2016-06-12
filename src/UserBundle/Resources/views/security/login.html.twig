@@ -32,7 +32,7 @@
             {% endif %}
 
             {% for flash_message in app.session.flashBag.get('notice') %}
-              <div class="flash-notice">
+              <div class="ui positive message">
                 {{ flash_message }}
               </div>
             {% endfor %}

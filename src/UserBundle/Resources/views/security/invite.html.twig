@@ -2,22 +2,22 @@
 
 {% block navbar %}
   <div class="ui blue inverted menu">
-    <a class="item" href="{{ path('home') }}"><i class="suitcase icon"></i>Karta kierowcy</a>
-    <a class="item" href="newTransport.php"><i class="add square icon"></i>Zgłoś nowy transport</a>
-    <a class="item" href="myTransports.php"><i class="cube icon"></i>Twoje transporty</a>
-    <a class="item" href="listDrivers.php"><i class="world icon"></i>Lista kierowców</a>
-    <a class="item" href="statsDrivers.php"><i class="area chart icon"></i>Statystyki kierowców</a>
+    <a class="item" href="{{ path('home') }}"><i class="suitcase icon"></i>{% trans %}Driver card{% endtrans %}</a>
+    <a class="item" href="newTransport.php"><i class="add square icon"></i>{% trans %}Report new transport{% endtrans %}</a>
+    <a class="item" href="myTransports.php"><i class="cube icon"></i>{% trans %}Your transports{% endtrans %}</a>
+    <a class="item" href="listDrivers.php"><i class="world icon"></i>{% trans %}List of drivers{% endtrans %}</a>
+    <a class="item" href="statsDrivers.php"><i class="area chart icon"></i>{% trans %}Driver statistics{% endtrans %}</a>
     <div class="right menu">
       <div class="ui dropdown item">
-        <i class="user icon"></i>Witaj, {{ app.user.username }}<i class="dropdown icon"></i>
+        <i class="user icon"></i>{% trans %}Hello,{% endtrans %} {{ app.user.username|capitalize }}<i class="dropdown icon"></i>
         <div class="ui menu">
-          <a class="item" href=""></i>Zobacz profil</a>
+          <a class="item" href="{{ path('profile') }}"></i>{% trans %}Show profile{% endtrans %}</a>
           <div class="ui divider"></div>
-          <a class="active item" href="{{ path('employee_add') }}"></i>Dodaj pracownika</a>
-          <a class="item" href=""></i>Przeglądaj zlecenia</a>
-          <a class="item" href=""></i>Przeglądaj kierowców</a>
+          <a class="active item" href="{{ path('employee_add') }}"></i>{% trans %}Add employee{% endtrans %}</a>
+          <a class="item" href=""></i>{% trans %}Browse transports{% endtrans %}</a>
+          <a class="item" href=""></i>{% trans %}Browse employees{% endtrans %}</a>
           <div class="ui divider"></div>
-          <a class="item" href="{{ path('logout') }}">Wyloguj się</a>
+          <a class="item" href="{{ path('logout') }}">{% trans %}Sign out{% endtrans %}</a>
         </div>
       </div>
     </div>
@@ -30,7 +30,7 @@
       <h1 class="ui blue image header">
         <i class="blue square add icon"></i>
         <div class="content">
-          Dodawanie pracownika
+          {% trans %}Adding an employee{% endtrans %}
         </div>
       </h1>
 
@@ -46,17 +46,17 @@
             <div class="ui selection dropdown">
               {{ form_row(form.role) }}
               <i class="dropdown icon"></i>
-              <div class="default text">Stanowisko</div>
+              <div class="default text">{% trans %}Position{% endtrans %}: </div>
               <div class="menu">
-                <div class="item">Szef</div>
-                <div class="item">V-CE Szef</div>
-                <div class="item">Dyspozytor</div>
-                <div class="item">Kierowca</div>
-                <div class="item">Okres testowy</div>
+                <div class="item">{% trans %}Boss{% endtrans %}</div>
+                <div class="item">{% trans %}Vice Boss{% endtrans %}</div>
+                <div class="item">{% trans %}Dispatcher{% endtrans %}</div>
+                <div class="item">{% trans %}Driver{% endtrans %}</div>
+                <div class="item">{% trans %}Demo{% endtrans %}</div>
               </div>
             </div>
           </div>
-          <input type="submit" value="Dodaj pracownika" class="ui blue fluid large button">
+          <input type="submit" value="{% trans %}Add employee{% endtrans %}" class="ui blue fluid large button">
         {{ form_end(form) }}
       </div>
     </div>

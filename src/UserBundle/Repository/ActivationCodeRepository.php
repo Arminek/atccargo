@@ -15,4 +15,11 @@ class ActivationCodeRepository extends \Doctrine\ORM\EntityRepository
       ->setParameter('email', $email)
       ->getResult();
   }
+  public function findByCode($code)
+  {
+    return $this->getEntityManager()
+      ->createQuery('SELECT p FROM UserBundle:ActivationCode p WHERE p.activationCode = :code')
+      ->setParameter('code', $code)
+      ->getSingleResult();
+  }
 }

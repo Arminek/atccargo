@@ -12,6 +12,8 @@ class User implements UserInterface, \Serializable
     private $email;
     private $plainPassword;
     private $activationCode;
+    private $avatar;
+    private $roles;
 
     public function getId()
     {
@@ -68,6 +70,16 @@ class User implements UserInterface, \Serializable
         $this->activationCode = $activationCode;
     }
 
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
+    }
+
     public function getSalt()
     {
         return null;
@@ -75,7 +87,12 @@ class User implements UserInterface, \Serializable
 
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return array($this->roles);
+    }
+
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
     }
 
     public function eraseCredentials()
@@ -100,4 +117,3 @@ class User implements UserInterface, \Serializable
           ) = unserialize($serialized);
     }
 }
-

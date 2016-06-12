@@ -24,3 +24,7 @@ employee_add:
 register_verification:
   path: /register/verification
   defaults: { _controller: UserBundle:InvitationCode:check }
+
+profile:
+  path: /profile
+  defaults: { _controller: UserBundle:Profile:index }

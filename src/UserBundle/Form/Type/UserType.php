@@ -3,6 +3,7 @@
 namespace UserBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -41,6 +42,21 @@ class UserType extends AbstractType
           'placeholder' => 'Email',
         ),
         'label' => false,
+      ))
+      ->add('avatar', ChoiceType::class, array(
+        'choices' => array(
+          'Avatar 1' => 1,
+          'Avatar 2' => 2,
+          'Avatar 3' => 3,
+          'Avatar 4' => 4,
+          'Avatar 5' => 5,
+          'Avatar 6' => 6,
+          'Avatar 7' => 7,
+          'Avatar 8' => 8,
+          'Avatar 9' => 9,
+        ),
+        'expanded' => true,
+        'label'    => false,
       ));
 
   }

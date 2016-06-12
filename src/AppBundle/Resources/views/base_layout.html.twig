@@ -37,6 +37,9 @@
     body {
       background-color: #f3f3f3;
     }
+    .ui.small.header {
+      text-transform: uppercase;
+    }
     {% block extraCss %}
     {% endblock %}
   </style>
@@ -60,7 +63,7 @@
       <div class="ui left aligned grid">
         <div class="ui four wide column">
           <h5 class="ui small header">
-            WYKONANYCH ZLECEŃ
+            {% trans %}Made transports{% endtrans %}
             <div class="sub header">
               <h1 class="ui blue inverted header">43</h1>
             </div>
@@ -68,7 +71,7 @@
         </div>
         <div class="ui four wide column">
           <h5 class="ui small header">
-            ZAROBIONYCH PIENIĘDZY
+            {% trans %}Earned money{% endtrans %}
             <div class="sub header">
               <h1 class="ui blue inverted header">500 PLN</h1>
             </div>
@@ -76,7 +79,7 @@
         </div>
         <div class="ui four wide column">
           <h5 class="ui small header">
-            PRZEJECHANYCH KILOMETRÓW
+            {% trans %}Travelled distance{% endtrans %}
             <div class="sub header">
               <h1 class="ui blue inverted header">90000 KM</h1>
             </div>
@@ -84,7 +87,7 @@
         </div>
         <div class="ui four wide column">
           <h5 class="ui small header">
-            SPALONE PALIWO
+            {% trans %}Fuel burned{% endtrans %}
             <div class="sub header">
               <h1 class="ui blue inverted header">7340 L</h1>
             </div>

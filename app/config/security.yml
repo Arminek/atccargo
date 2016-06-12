@@ -32,9 +32,12 @@ security:
                 path: /logout
                 target: /
                 success_handler: logout_handler
-
+    role_hierarchy:
+          ROLE_BOSS:       [ROLE_VICEBOSS, ROLE_DISPATCHER, ROLE_DRIVER, ROLE_DEMO]
+          ROLE_VICEBOSS:   [ROLE_DISPATCHER, ROLE_DRIVER, ROLE_DEMO]
+          ROLE_DISPATCHER: [ROLE_DRIVER, ROLE_DEMO]
+          ROLE_DRIVER:     [ROLE_DEMO]
     access_control:
-        - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^/dashboard, roles: ROLE_USER }
-        - { path: ^/employee/add, roles: ROLE_USER }
+        - { path: ^/dashboard, roles: ROLE_DRIVER }
+        - { path: ^/employee/add, roles: ROLE_BOSS }
         - { path: ^/register/verification, roles: IS_AUTHENTICATED_ANONYMOUSLY }

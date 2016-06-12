@@ -22,21 +22,28 @@ class RegistrationController extends Controller
             $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) {
 
-                // 3) Encode the password (you could also do this via Doctrine listener)
+                $role = $this->transformRoles($session->get('roles'));
                 $password = $this->get('security.password_encoder')
                   ->encodePassword($user, $user->getPlainPassword());
                 $user->setPassword($password);
+                $user->setRoles($role);
 
-                // 4) save the User!
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($user);
+
+                $formCode = $session->get('code');
+                $activationCode = $this->getDoctrine()
+                  ->getRepository('UserBundle:ActivationCode')
+                  ->findByCode($formCode);
+                $em->remove($activationCode);
                 $em->flush();
+                $session->clear();
 
                 $this->addFlash(
                   'notice',
-                  'Account has been created!'
+                  'Pomyślnie zarejestrowano konto!'
                 );
-
+                
                 return $this->redirectToRoute('login');
             }
 
@@ -47,5 +54,28 @@ class RegistrationController extends Controller
         } else {
             return $this->redirectToRoute('home');
         }
+    }
+    public function transformRoles($roles)
+    {
+        switch($roles)
+        {
+            case "Szef":
+                $role = "ROLE_BOSS";
+                break;
+            case "V-CE Szef":
+                $role = "ROLE_VICEBOSS";
+                break;
+            case "Dyspozytor":
+                $role = "ROLE_DISPATCHER";
+                break;
+            case "Kierowca":
+                $role = "ROLE_DRIVER";
+                break;
+            case "Okres testowy":
+                $role = "ROLE_DEMO";
+                break;
+        }
+
+        return $role;
     }
 }
