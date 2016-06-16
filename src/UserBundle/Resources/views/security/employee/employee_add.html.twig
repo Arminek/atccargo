@@ -1,28 +1,6 @@
 {% extends "@App/base_layout.html.twig" %}
 
-{% block navbar %}
-  <div class="ui blue inverted menu">
-    <a class="item" href="{{ path('home') }}"><i class="suitcase icon"></i>{% trans %}Driver card{% endtrans %}</a>
-    <a class="item" href="newTransport.php"><i class="add square icon"></i>{% trans %}Report new transport{% endtrans %}</a>
-    <a class="item" href="myTransports.php"><i class="cube icon"></i>{% trans %}Your transports{% endtrans %}</a>
-    <a class="item" href="listDrivers.php"><i class="world icon"></i>{% trans %}List of drivers{% endtrans %}</a>
-    <a class="item" href="statsDrivers.php"><i class="area chart icon"></i>{% trans %}Driver statistics{% endtrans %}</a>
-    <div class="right menu">
-      <div class="ui dropdown item">
-        <i class="user icon"></i>{% trans %}Hello,{% endtrans %} {{ app.user.username|capitalize }}<i class="dropdown icon"></i>
-        <div class="ui menu">
-          <a class="item" href="{{ path('profile') }}"></i>{% trans %}Show profile{% endtrans %}</a>
-          <div class="ui divider"></div>
-          <a class="active item" href="{{ path('employee_add') }}"></i>{% trans %}Add employee{% endtrans %}</a>
-          <a class="item" href=""></i>{% trans %}Browse transports{% endtrans %}</a>
-          <a class="item" href=""></i>{% trans %}Browse employees{% endtrans %}</a>
-          <div class="ui divider"></div>
-          <a class="item" href="{{ path('logout') }}">{% trans %}Sign out{% endtrans %}</a>
-        </div>
-      </div>
-    </div>
-  </div>
-{% endblock %}
+{% set active_item = 'add_employee' %}
 
 {% block content %}
   <div class="ui center aligned grid">
@@ -56,6 +34,11 @@
               </div>
             </div>
           </div>
+          {% for flash_message in app.session.flashBag.get('notice') %}
+            <div class="ui positive message">
+              {{ flash_message|trans }}
+            </div>
+          {% endfor %}
           <input type="submit" value="{% trans %}Add employee{% endtrans %}" class="ui blue fluid large button">
         {{ form_end(form) }}
       </div>

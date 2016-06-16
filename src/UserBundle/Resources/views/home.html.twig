@@ -1,28 +1,6 @@
 {% extends "@App/base_layout.html.twig" %}
 
-{% block navbar %}
-  <div class="ui blue inverted menu">
-    <a class="active item" href="{{ path('home') }}"><i class="suitcase icon"></i>{% trans %}Driver card{% endtrans %}</a>
-    <a class="item" href="newTransport.php"><i class="add square icon"></i>{% trans %}Report new transport{% endtrans %}</a>
-    <a class="item" href="myTransports.php"><i class="cube icon"></i>{% trans %}Your transports{% endtrans %}</a>
-    <a class="item" href="listDrivers.php"><i class="world icon"></i>{% trans %}List of drivers{% endtrans %}</a>
-    <a class="item" href="statsDrivers.php"><i class="area chart icon"></i>{% trans %}Driver statistics{% endtrans %}</a>
-    <div class="right menu">
-      <div class="ui dropdown item">
-        <i class="user icon"></i>{% trans %}Hello,{% endtrans %} {{ app.user.username|capitalize }}<i class="dropdown icon"></i>
-        <div class="ui menu">
-          <a class="item" href="{{ path('profile') }}"></i>{% trans %}Show profile{% endtrans %}</a>
-          <div class="ui divider"></div>
-          <a class="item" href="{{ path('employee_add') }}"></i>{% trans %}Add employee{% endtrans %}</a>
-          <a class="item" href=""></i>{% trans %}Browse transports{% endtrans %}</a>
-          <a class="item" href=""></i>{% trans %}Browse employees{% endtrans %}</a>
-          <div class="ui divider"></div>
-          <a class="item" href="{{ path('logout') }}">{% trans %}Sign out{% endtrans %}</a>
-        </div>
-      </div>
-    </div>
-  </div>
-{% endblock %}
+{% set active_item = 'driver_card' %}
 
 {% block content %}
   <table class="ui table">
@@ -36,7 +14,7 @@
         <td class="center aligned">24.10.2016<br/>16:32</td>
         <td class="collapsing"><i class="truck large circular inverted blue icon"></i></td>
         <td>
-          <b>{% trans %}Realized transport with ID:{% endtrans %} FFB/77C</b><br/>
+          <b>{% trans %}Realized transport with ID{% endtrans %}: CGGE/A0001512211/321812</b><br/>
           {% trans %}Transport a cargo{% endtrans %} <b>Kartofle</b> {% trans %}from{% endtrans %} <b>Warszawa</b> {% trans %}to{% endtrans %} <b>Kraków</b>.<br/>
           <span id="details-1">{% trans %}Mileage{% endtrans %} <b>1430 KM</b> {% trans %}with a cargo weighing{% endtrans %} <b>1400 KG</b></span><br>
           <a style="cursor: pointer;"><i class="add square icon"></i>{% trans %}Details{% endtrans %}</a>

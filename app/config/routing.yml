@@ -1,3 +1,7 @@
+transport:
+    resource: "@TransportBundle/Resources/config/routing.yml"
+    prefix:   /transport
+
 app:
     resource: "@AppBundle/Resources/config/routing.yml"
 

@@ -2,6 +2,34 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
+            <trans-unit id="log_in_to_your_account">
+                  <source>Log in to your account</source>
+                  <target>Zaloguj się na swoje konto</target>
+            </trans-unit>
+            <trans-unit id="log_in">
+                  <source>Log in</source>
+                  <target>Zaloguj</target>
+            </trans-unit>
+            <trans-unit id="do_you_have_a_registration_code">
+                  <source>Do you have a registration code?</source>
+                  <target>Posiadasz kod rejestracyjny?</target>
+            </trans-unit>
+            <trans-unit id="register_now">
+                  <source>Register now</source>
+                  <target>Zarejestruj się</target>
+            </trans-unit>
+            <trans-unit id="enter_registration_code">
+                  <source>Enter registration code</source>
+                  <target>Podaj kod rejestracyjny</target>
+            </trans-unit>
+            <trans-unit id="registration_code">
+                  <source>Registration code</source>
+                  <target>Kod rejestracyjny</target>
+            </trans-unit>
+            <trans-unit id="check_code">
+                  <source>Check code</source>
+                  <target>Sprawdź kod</target>
+            </trans-unit>
             <trans-unit id="driver_card">
                 <source>Driver card</source>
                 <target>Karta kierowcy</target>
@@ -67,11 +95,11 @@
                   <target>Ostatnie transporty</target>
             </trans-unit>
             <trans-unit id="realized_transport_with_id">
-                  <source>Realized transport with id:</source>
-                  <target>Wykonanie transportu o identyfikatorze:</target>
+                  <source>Realized transport with ID</source>
+                  <target>Wykonanie transportu o identyfikatorze</target>
             </trans-unit>
             <trans-unit id="transport_a_cargo">
-                  <source>Transport cargo</source>
+                  <source>Transport a cargo</source>
                   <target>Transport towaru</target>
             </trans-unit>
             <trans-unit id="from">
@@ -145,6 +173,34 @@
             <trans-unit id="email">
                   <source>Email</source>
                   <target>Email</target>
+            </trans-unit>
+            <trans-unit id="email_has_been_sent">
+                  <source>Email has been sent!</source>
+                  <target>Email został wysłany!</target>
+            </trans-unit>
+            <trans-unit id="complete_your_registration">
+                  <source>Complete your registration</source>
+                  <target>Dokończ swoją rejestrację</target>
+            </trans-unit>
+            <trans-unit id="repeat_password">
+                  <source>Repeat password</source>
+                  <target>Powtórz hasło</target>
+            </trans-unit>
+            <trans-unit id="register">
+                  <source>Register</source>
+                  <target>Zarejestruj</target>
+            </trans-unit>
+            <trans-unit id="login">
+                  <source>Login</source>
+                  <target>Login</target>
+            </trans-unit>
+            <trans-unit id="code_is_incorrect">
+                   <source>Code is incorrect!</source>
+                   <target>Kod jest nieprawidłowy!</target>
+            </trans-unit>
+            <trans-unit id="account_has_been_created">
+                   <source>Account has been created!</source>
+                   <target>Rejestracja przebiegła pomyślnie, możesz się zalogować!</target>
             </trans-unit>
         </body>
     </file>

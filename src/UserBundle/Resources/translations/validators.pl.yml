@@ -1,0 +1,6 @@
+user.name.min.length: Twój login musi zawierać co najmniej {{ limit }} znaki
+user.name.max.length: Twój login może zawierać maksimum {{ limit }} znaków
+user.email.not.valid: Email {{ value }} nie jest prawidłowym adresem
+user.plainPassword.min.length: Twoje hasło powinno zawierać co najmniej {{ limit }} znaków
+user.plainPassword.not.match: Podane hasła muszą się zgadzać
+

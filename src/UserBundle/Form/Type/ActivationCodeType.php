@@ -19,8 +19,7 @@ class ActivationCodeType extends AbstractType
           'placeholder' => 'Email'
         ),
       ))
-      ->add('role', HiddenType::class)
-      ;
+      ->add('role', HiddenType::class);
   }
 
   public function configureOptions(OptionsResolver $resolver)

@@ -1,30 +1,26 @@
-login:
-  path: /login
-  defaults: { _controller: UserBundle:Security:login }
-
 home:
   path: /
   defaults: { _controller: AppBundle:Default:index }
 
-admin:
-  path: /admin
-  defaults: { _controller: UserBundle:Admin:show }
+login:
+  path: /login
+  defaults: { _controller: UserBundle:Security:login }
+
+register:
+  path: /register
+  defaults: { _controller: UserBundle:Security:register }
+
+register_verification:
+  path: /register/verification
+  defaults: { _controller: UserBundle:Security:registerVerification }
 
 logout:
   path: /logout
 
-register:
-  path: /register
-  defaults: { _controller: UserBundle:Registration:register }
+profile:
+  path: /profile
+  defaults: { _controller: UserBundle:Profile:show }
 
 employee_add:
   path: /employee/add
-  defaults: { _controller: UserBundle:Invite:invite }
-
-register_verification:
-  path: /register/verification
-  defaults: { _controller: UserBundle:InvitationCode:check }
-
-profile:
-  path: /profile
-  defaults: { _controller: UserBundle:Profile:index }
+  defaults: { _controller: UserBundle:Security:employeeAdd }

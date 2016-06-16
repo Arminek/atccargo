@@ -1,0 +1,52 @@
+TransportBundle\Entity\Transport:
+    properties:
+        startCity:
+            - NotBlank: ~
+        endCity:
+            - NotBlank: ~
+        cargo:
+            - NotBlank: ~
+        distance:
+            - NotBlank: ~
+            - Type:
+                type: integer
+                message: transport.distance.not.integer
+        weight:
+            - NotBlank: ~
+            - Type:
+                type: integer
+                message: transport.weight.not.integer
+        damage:
+            - NotBlank: ~
+            - Type:
+                type: integer
+                message: transport.damage.not.integer
+            - Range:
+                min: 0
+                max: 100
+                minMessage: transport.damage.min.range
+                maxMessage: transport.damage.max.range
+        fuel:
+            - NotBlank: ~
+            - Type:
+                type: integer
+                message: transport.fuel.not.integer
+        fueled:
+            - Type:
+                type: integer
+                message: transport.fueled.not.integer
+        screenshot:
+            - NotBlank: ~
+            - Image:
+                mimeTypes: [image/png, image/jpeg, image/jpg]
+                mimeTypesMessage: transport.screenshot.not.valid.image
+        startDate:
+            - NotBlank: ~
+            - DateTime:
+                format: Y-m-d H:i
+                message: transport.startDate.not.valid.format
+        endDate:
+            - NotBlank: ~
+            - DateTime:
+                format: Y-m-d H:i
+                message: transport.endDate.not.valid.format

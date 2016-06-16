@@ -1,0 +1,7 @@
+transport_report:
+    path:     /report
+    defaults: { _controller: TransportBundle:Transport:report }
+
+transport_browse:
+    path:     /browse
+    defaults: { _controller: TransportBundle:Transport:notActivated }

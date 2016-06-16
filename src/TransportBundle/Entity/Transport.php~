@@ -1,0 +1,33 @@
+<?php
+
+namespace TransportBundle\Entity;
+
+/**
+ * Transport
+ */
+class Transport
+{
+    private $id;
+    private $userName;
+    private $startCity;
+    private $endCity;
+    private $cargo;
+    private $distance;
+    private $weight;
+    private $damage;
+    private $fuel;
+    private $fueled;
+    private $country;
+    private $score;
+    private $transportId;
+    private $screenshot;
+    private $status;
+    private $startDate;
+    private $endDate;
+
+    public function getId()
+    {
+        return $this->id;
+    }
+}
+

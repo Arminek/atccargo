@@ -1,0 +1,47 @@
+TransportBundle\Entity\Transport:
+    type: entity
+    table: transport
+    repositoryClass: TransportBundle\Repository\TransportRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        userName:
+            type: string
+        startCity:
+            type: string
+        endCity:
+            type: string
+        cargo:
+            type: string
+        distance:
+            type: integer
+        weight:
+            type: integer
+        damage:
+            type: integer
+        fuel:
+            type: integer
+        fueled:
+            type: integer
+        country:
+            type: string
+        score:
+            type: integer
+        transportId:
+            type: string
+            unique: true
+        screenshot:
+            type: string
+            unique: true
+        active:
+            type: boolean
+        startDate:
+            type: datetime
+        endDate:
+            type: datetime
+
+    lifecycleCallbacks: {  }

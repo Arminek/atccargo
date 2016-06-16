@@ -54,8 +54,36 @@
     <a href="{{ path('home') }}"><img src="{{ asset('images/logo_header.png') }}" alt="atc cargo"></a>
   </div>
 
-  {% block navbar %}{% endblock navbar %}
-
+  <!-- Menu -->
+  {% if active_item is defined %}
+    {% block navbar %}
+      <div class="ui blue inverted menu">
+        <a class="{% if active_item == 'driver_card' %}active{% endif %} item" href="{{ path('home') }}"><i class="suitcase icon"></i>{% trans %}Driver card{% endtrans %}</a>
+        <a class="{% if active_item == 'report_new_transport' %}active{% endif %} item" href="{{ path('transport_report') }}"><i class="add square icon"></i>{% trans %}Report new transport{% endtrans %}</a>
+        <a class="{% if active_item == 'your_transports' %}active{% endif %} item" href=""><i class="cube icon"></i>{% trans %}Your transports{% endtrans %}</a>
+        <a class="{% if active_item == 'list_of_drivers' %}active{% endif %} item" href=""><i class="world icon"></i>{% trans %}List of drivers{% endtrans %}</a>
+        <a class="{% if active_item == 'driver_statistics' %}active{% endif %} item" href=""><i class="area chart icon"></i>{% trans %}Driver statistics{% endtrans %}</a>
+        <div class="right menu">
+          <div class="ui dropdown item">
+            <i class="user icon"></i>{% trans %}Hello,{% endtrans %} {{ app.user.username|capitalize }} <i class="dropdown icon"></i>
+            <div class="ui menu">
+              <a class="{% if active_item == 'show_profile' %}active{% endif %} item" href="{{ path('profile') }}"></i>{% trans %}Show profile{% endtrans %}</a>
+              {% if is_granted('ROLE_DISPATCHER') %}
+                <div class="ui divider"></div>
+                {% if is_granted('ROLE_BOSS') %}
+                  <a class="{% if active_item == 'add_employee' %}active{% endif %} item" href="{{ path('employee_add') }}"></i>{% trans %}Add employee{% endtrans %}</a>
+                  <a class="{% if active_item == 'browse_employees' %}active{% endif %} item" href=""></i>{% trans %}Browse employees{% endtrans %}</a>
+                {% endif %}
+                <a class="{% if active_item == 'browse_transports' %}active{% endif %} item" href="{{ path('transport_browse') }}"></i>{% trans %}Browse transports{% endtrans %}</a>
+              {% endif %}
+              <div class="ui divider"></div>
+              <a class="item" href="{{ path('logout') }}">{% trans %}Sign out{% endtrans %}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endblock navbar %}
+  {% endif %}
 
   <!-- Content Segment -->
   {% if app.user.username is defined %}

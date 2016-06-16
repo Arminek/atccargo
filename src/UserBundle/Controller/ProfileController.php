@@ -7,9 +7,9 @@ use UserBundle\Entity\User;
 
 class ProfileController extends Controller
 {
-    public function indexAction()
+    public function showAction()
     {
-        return $this->render('@User/security/profile.html.twig', array(
+        return $this->render('@User/profile/profile.html.twig', array(
             'role' => $this->transformRoles(),
         ));
     }

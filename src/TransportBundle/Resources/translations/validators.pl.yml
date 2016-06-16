@@ -1,0 +1,10 @@
+transport.distance.not.integer: Ta wartość jest nieprawidłowa
+transport.weight.not.integer: Ta wartość jest nieprawidłowa
+transport.damage.not.integer: Ta wartość jest nieprawidłowa
+transport.damage.min.range: Procent uszkodzeń nie może być mniejszy niż 0%
+transport.damage.max.range: Procent uszkodzeń nie może być wyższy niż 100%
+transport.fuel.not.integer: Ta wartość jest nieprawidłowa
+transport.fueled.not.integer: Ta wartość jest nieprawidłowa
+transport.screenshot.not.valid.image: Wrzuć poprawny typ zdjęcia .png .jpeg .jpg
+transport.startDate.not.valid.format: Ta wartość jest nieprawidłowa
+transport.endDate.not.valid.format: Ta wartość jest nieprawidłowa

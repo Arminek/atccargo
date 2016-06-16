@@ -1,0 +1,5 @@
+user.name.min.length: Your login must be at least {{ limit }} characters long
+user.name.max.length: Your login cannot be longer than {{ limit }} characters
+user.email.not.valid: The email {{ value }} is not a valid email
+user.plainPassword.min.length: Your password must be at least {{ limit }} characters long
+user.plainPassword.not.match: The passwords fields must match

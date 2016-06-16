@@ -7,7 +7,7 @@
         <h2 class="ui blue image header">
           <img src="{{ asset('images/logo.png') }}" class="image">
           <div class="content">
-            Podaj kod aktywacyjny
+            {% trans %}Enter registration code{% endtrans %}
           </div>
         </h2>
         {{ form_start(form, {'attr': {'class': 'ui large form'}}) }}
@@ -27,11 +27,11 @@
 
             {% for flash_message in app.session.flashBag.get('notice') %}
               <div class="ui negative message">
-                {{ flash_message }}
+                {{ flash_message|trans }}
               </div>
             {% endfor %}
 
-            <button type="submit" class="ui fluid large blue submit button">Sprawdź klucz</input>
+            <button type="submit" class="ui fluid large blue submit button">{% trans %}Check code{% endtrans %}</input>
           </div>
         {{ form_end(form) }}
       </div>

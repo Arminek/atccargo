@@ -1,0 +1,22 @@
+UserBundle\Entity\User:
+    properties:
+        username:
+            - NotBlank: ~
+            - NotNull: ~
+            - Length:
+                min: 3
+                max: 16
+                minMessage: 'user.name.min.length'
+                maxMessage: 'user.name.max.length'
+        email:
+            - NotBlank: ~
+            - Email:
+                message: user.email.not.valid
+                checkMX: true
+        plainPassword:
+            - NotBlank: ~
+            - Length:
+                min: 6
+                minMessage: 'user.plainPassword.min.length'
+        avatar:
+            - NotBlank: ~

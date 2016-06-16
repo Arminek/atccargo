@@ -38,6 +38,9 @@ security:
           ROLE_DISPATCHER: [ROLE_DRIVER, ROLE_DEMO]
           ROLE_DRIVER:     [ROLE_DEMO]
     access_control:
-        - { path: ^/dashboard, roles: ROLE_DRIVER }
+        - { path: ^/dashboard, roles: ROLE_DEMO }
         - { path: ^/employee/add, roles: ROLE_BOSS }
-        - { path: ^/register/verification, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/profile, roles: ROLE_DEMO }
+        - { path: ^/transport/report, roles: ROLE_DEMO }

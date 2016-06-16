@@ -1,0 +1,621 @@
+{% extends "@App/base_layout.html.twig" %}
+{% form_theme form "@Transport/Form/fields.html.twig" %}
+
+{% set active_item = 'report_new_transport' %}
+
+{% block extraCss %}
+  .radio_item{
+  display: none !important;
+  }
+
+  .label_item {
+  opacity: 0.5;
+  }
+
+  .radio_item:checked + label {
+  opacity: 1;
+  }
+
+  label {
+  cursor: pointer;
+  }
+
+  .ui.action.input input[type="file"] {
+  display: none;
+  }
+{% endblock extraCss %}
+
+{% block content %}
+  <div class="ui center aligned grid">
+    <div class="six wide column">
+      <h1 class="ui blue image header">
+        <i class="blue square call icon"></i>
+        <div class="content">
+          {% trans %}Reporting transport{% endtrans %}
+        </div>
+      </h1>
+
+      <div class="ui stacked segment">
+        {{ form_start(form) }}
+        <h4 class="ui dividing header">{% trans %}Transport informations{% endtrans %}</h4>
+        <div class="two fields">
+          <div class="field">
+            <label>{% trans %}Start city{% endtrans %}</label>
+            <div class="ui fluid search selection dropdown">
+              {{ form_widget(form.startCity) }}
+              <i class="dropdown icon"></i>
+              <div class="default text">{% trans %}Start city{% endtrans %}</div>
+              <div class="menu">
+                <div class="item">Aalborg</div>
+                <div class="item">Aberden</div>
+                <div class="item">Amsterdam</div>
+                <div class="item">Banska Bystrica</div>
+                <div class="item">Bergen</div>
+                <div class="item">Berlin</div>
+                <div class="item">Bern</div>
+                <div class="item">Białystok</div>
+                <div class="item">Birmingham</div>
+                <div class="item">Bratislava</div>
+                <div class="item">Bremen</div>
+                <div class="item">Brno</div>
+                <div class="item">Brussel</div>
+                <div class="item">Budapest</div>
+                <div class="item">Calais</div>
+                <div class="item">Cambridge</div>
+                <div class="item">Cardiff</div>
+                <div class="item">Carlisle</div>
+                <div class="item">Debrecen</div>
+                <div class="item">Dijon</div>
+                <div class="item">Dortmund</div>
+                <div class="item">Dover</div>
+                <div class="item">Dresden</div>
+                <div class="item">Duisburg</div>
+                <div class="item">Dusseldorf</div>
+                <div class="item">Edinburgh</div>
+                <div class="item">Erfurt</div>
+                <div class="item">Esbjerg</div>
+                <div class="item">Felixstowe</div>
+                <div class="item">Frankfurt am Main</div>
+                <div class="item">Frederikshavn</div>
+                <div class="item">Gdańsk</div>
+                <div class="item">Gedser</div>
+                <div class="item">Geneve</div>
+                <div class="item">Glasgow</div>
+                <div class="item">Goteborg</div>
+                <div class="item">Graz</div>
+                <div class="item">Grimbsy</div>
+                <div class="item">Groningen</div>
+                <div class="item">Hamburg</div>
+                <div class="item">Hannover</div>
+                <div class="item">Helsingborg</div>
+                <div class="item">Hirtshals</div>
+                <div class="item">Innsbruck</div>
+                <div class="item">Jonkoping</div>
+                <div class="item">Kalmar</div>
+                <div class="item">Karlskrona</div>
+                <div class="item">Kassel</div>
+                <div class="item">Katowice</div>
+                <div class="item">Kiel</div>
+                <div class="item">Klagenfurt am Worthersee</div>
+                <div class="item">Koln</div>
+                <div class="item">Kosice</div>
+                <div class="item">Kraków</div>
+                <div class="item">Kristiansand</div>
+                <div class="item">Kobenhavn</div>
+                <div class="item">Leipzig</div>
+                <div class="item">Liege</div>
+                <div class="item">Lille</div>
+                <div class="item">Linkoping</div>
+                <div class="item">Linz</div>
+                <div class="item">Liverpool</div>
+                <div class="item">London</div>
+                <div class="item">Lublin</div>
+                <div class="item">Luxembourg</div>
+                <div class="item">Lyon</div>
+                <div class="item">Magdeburg</div>
+                <div class="item">Malmo</div>
+                <div class="item">Manchester</div>
+                <div class="item">Mannheim</div>
+                <div class="item">Milano</div>
+                <div class="item">Munchen</div>
+                <div class="item">Newcastle-upon-Tyne</div>
+                <div class="item">Nurnberg</div>
+                <div class="item">Nynashamm</div>
+                <div class="item">Odense</div>
+                <div class="item">Olsztyn</div>
+                <div class="item">Orebro</div>
+                <div class="item">Oslo</div>
+                <div class="item">Osnabruck</div>
+                <div class="item">Ostrava</div>
+                <div class="item">Paris</div>
+                <div class="item">Pecs</div>
+                <div class="item">Plymouth</div>
+                <div class="item">Poznań</div>
+                <div class="item">Praha</div>
+                <div class="item">Reims</div>
+                <div class="item">Rostock</div>
+                <div class="item">Rotterdam</div>
+                <div class="item">Salzburg</div>
+                <div class="item">Sheffield</div>
+                <div class="item">Southampton</div>
+                <div class="item">Stavanger</div>
+                <div class="item">Stockholm</div>
+                <div class="item">Strasbourg</div>
+                <div class="item">Stuttgart</div>
+                <div class="item">Swansea</div>
+                <div class="item">Szczecin</div>
+                <div class="item">Szeged</div>
+                <div class="item">Torino</div>
+                <div class="item">Trelleborg</div>
+                <div class="item">Uppsala</div>
+                <div class="item">Vasteras</div>
+                <div class="item">Vaxjo</div>
+                <div class="item">Venezia</div>
+                <div class="item">Verona</div>
+                <div class="item">Warszawa</div>
+                <div class="item">Wien</div>
+                <div class="item">Wrocław</div>
+                <div class="item">Zurich</div>
+                <div class="item">Łódź</div>
+              </div>
+            </div>
+            {{ form_errors(form.startCity) }}
+          </div>
+          <div class="field">
+            <label>{% trans %}Destination city{% endtrans %}</label>
+            <div class="ui fluid search selection dropdown">
+              {{ form_widget(form.endCity) }}
+              <i class="dropdown icon"></i>
+              <div class="default text">{% trans %}Destination city{% endtrans %}</div>
+              <div class="menu">
+                <div class="item">Aalborg</div>
+                <div class="item">Aberden</div>
+                <div class="item">Amsterdam</div>
+                <div class="item">Banska Bystrica</div>
+                <div class="item">Bergen</div>
+                <div class="item">Berlin</div>
+                <div class="item">Bern</div>
+                <div class="item">Białystok</div>
+                <div class="item">Birmingham</div>
+                <div class="item">Bratislava</div>
+                <div class="item">Bremen</div>
+                <div class="item">Brno</div>
+                <div class="item">Brussel</div>
+                <div class="item">Budapest</div>
+                <div class="item">Calais</div>
+                <div class="item">Cambridge</div>
+                <div class="item">Cardiff</div>
+                <div class="item">Carlisle</div>
+                <div class="item">Debrecen</div>
+                <div class="item">Dijon</div>
+                <div class="item">Dortmund</div>
+                <div class="item">Dover</div>
+                <div class="item">Dresden</div>
+                <div class="item">Duisburg</div>
+                <div class="item">Dusseldorf</div>
+                <div class="item">Edinburgh</div>
+                <div class="item">Erfurt</div>
+                <div class="item">Esbjerg</div>
+                <div class="item">Felixstowe</div>
+                <div class="item">Frankfurt am Main</div>
+                <div class="item">Frederikshavn</div>
+                <div class="item">Gdańsk</div>
+                <div class="item">Gedser</div>
+                <div class="item">Geneve</div>
+                <div class="item">Glasgow</div>
+                <div class="item">Goteborg</div>
+                <div class="item">Graz</div>
+                <div class="item">Grimbsy</div>
+                <div class="item">Groningen</div>
+                <div class="item">Hamburg</div>
+                <div class="item">Hannover</div>
+                <div class="item">Helsingborg</div>
+                <div class="item">Hirtshals</div>
+                <div class="item">Innsbruck</div>
+                <div class="item">Jonkoping</div>
+                <div class="item">Kalmar</div>
+                <div class="item">Karlskrona</div>
+                <div class="item">Kassel</div>
+                <div class="item">Katowice</div>
+                <div class="item">Kiel</div>
+                <div class="item">Klagenfurt am Worthersee</div>
+                <div class="item">Koln</div>
+                <div class="item">Kosice</div>
+                <div class="item">Kraków</div>
+                <div class="item">Kristiansand</div>
+                <div class="item">Kobenhavn</div>
+                <div class="item">Leipzig</div>
+                <div class="item">Liege</div>
+                <div class="item">Lille</div>
+                <div class="item">Linkoping</div>
+                <div class="item">Linz</div>
+                <div class="item">Liverpool</div>
+                <div class="item">London</div>
+                <div class="item">Lublin</div>
+                <div class="item">Luxembourg</div>
+                <div class="item">Lyon</div>
+                <div class="item">Magdeburg</div>
+                <div class="item">Malmo</div>
+                <div class="item">Manchester</div>
+                <div class="item">Mannheim</div>
+                <div class="item">Milano</div>
+                <div class="item">Munchen</div>
+                <div class="item">Newcastle-upon-Tyne</div>
+                <div class="item">Nurnberg</div>
+                <div class="item">Nynashamm</div>
+                <div class="item">Odense</div>
+                <div class="item">Olsztyn</div>
+                <div class="item">Orebro</div>
+                <div class="item">Oslo</div>
+                <div class="item">Osnabruck</div>
+                <div class="item">Ostrava</div>
+                <div class="item">Paris</div>
+                <div class="item">Pecs</div>
+                <div class="item">Plymouth</div>
+                <div class="item">Poznań</div>
+                <div class="item">Praha</div>
+                <div class="item">Reims</div>
+                <div class="item">Rostock</div>
+                <div class="item">Rotterdam</div>
+                <div class="item">Salzburg</div>
+                <div class="item">Sheffield</div>
+                <div class="item">Southampton</div>
+                <div class="item">Stavanger</div>
+                <div class="item">Stockholm</div>
+                <div class="item">Strasbourg</div>
+                <div class="item">Stuttgart</div>
+                <div class="item">Swansea</div>
+                <div class="item">Szczecin</div>
+                <div class="item">Szeged</div>
+                <div class="item">Torino</div>
+                <div class="item">Trelleborg</div>
+                <div class="item">Uppsala</div>
+                <div class="item">Vasteras</div>
+                <div class="item">Vaxjo</div>
+                <div class="item">Venezia</div>
+                <div class="item">Verona</div>
+                <div class="item">Warszawa</div>
+                <div class="item">Wien</div>
+                <div class="item">Wrocław</div>
+                <div class="item">Zurich</div>
+                <div class="item">Łódź</div>
+              </div>
+            </div>
+            {{ form_errors(form.endCity) }}
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>{% trans %}Cargo{% endtrans %}</label>
+            <div class="ui fluid search selection dropdown">
+              {{ form_widget(form.cargo) }}
+              <i class="dropdown icon"></i>
+              <div class="default text">{% trans %}Cargo{% endtrans %}</div>
+              <div class="menu">
+                <div class="item">Acetylen</div>
+                <div class="item">Amortyzatory </div>
+                <div class="item">Amunicja </div>
+                <div class="item">Arbuzy </div>
+                <div class="item">Arszenik </div>
+                <div class="item">Azot </div>
+                <div class="item">Baterie ciężarówek </div>
+                <div class="item">Bele słomy </div>
+                <div class="item">Benzyna </div>
+                <div class="item">Beton </div>
+                <div class="item">Biały fosfor </div>
+                <div class="item">Cebule </div>
+                <div class="item">Cement </div>
+                <div class="item">Chemikalia </div>
+                <div class="item">Chlor </div>
+                <div class="item">Chlorek rtęci </div>
+                <div class="item">Chłodnice </div>
+                <div class="item">Ciągniki </div>
+                <div class="item">Ciężarówki Scanii </div>
+                <div class="item">Ciężarówki Volvo </div>
+                <div class="item">Cukier </div>
+                <div class="item">Cyjanek </div>
+                <div class="item">Części hydrauliczne</div>
+                <div class="item">Części samochodowe </div>
+                <div class="item">Czosnek </div>
+                <div class="item">Dachówki </div>
+                <div class="item">Doniczki </div>
+                <div class="item">Drewniane podpory </div>
+                <div class="item">Drewno </div>
+                <div class="item">Drzewa w kontenerach </div>
+                <div class="item">Duże rury </div>
+                <div class="item">Dynamit </div>
+                <div class="item">Elektronika </div>
+                <div class="item">Elementy gazociągu </div>
+                <div class="item">Fajerwerki </div>
+                <div class="item">Fasola </div>
+                <div class="item">Felgi ciężarówek </div>
+                <div class="item">Filer z Dorsza Atlantyckiego </div>
+                <div class="item">Filety z łososia </div>
+                <div class="item">Filtry oleju </div>
+                <div class="item">Fluor </div>
+                <div class="item">Gąsienica </div>
+                <div class="item">Gorące chemikalia </div>
+                <div class="item">Gruszki </div>
+                <div class="item">Helikopter </div>
+                <div class="item">Jabłka </div>
+                <div class="item">Jagnięce żołądki </div>
+                <div class="item">Jęczmień </div>
+                <div class="item">Jedzenie dla zwierząt </div>
+                <div class="item">Jedzenie w paczkach </div>
+                <div class="item">Jogurty </div>
+                <div class="item">Kable elektryczne </div>
+                <div class="item">Kalafior </div>
+                <div class="item">Kawior </div>
+                <div class="item">Ketchup </div>
+                <div class="item">Kiełbasy </div>
+                <div class="item">Klimatyzatory </div>
+                <div class="item">Kontener IBC </div>
+                <div class="item">Kopacz 1000 </div>
+                <div class="item">Kopacz 500 </div>
+                <div class="item">Koparka </div>
+                <div class="item">Koparki </div>
+                <div class="item">Kora drzewna </div>
+                <div class="item">Kozi Ser </div>
+                <div class="item">Kwas </div>
+                <div class="item">Kłody </div>
+                <div class="item">Lody </div>
+                <div class="item">LPG </div>
+                <div class="item">Luksusowe SUVy</div>
+                <div class="item">Magnez </div>
+                <div class="item">Mąka </div>
+                <div class="item">Marchewki </div>
+                <div class="item">Maszt wiatraka </div>
+                <div class="item">Masło orzechowe </div>
+                <div class="item">Materiały wybuchowe </div>
+                <div class="item">Meble </div>
+                <div class="item">Metale ciężkie </div>
+                <div class="item">Metalowe puszki </div>
+                <div class="item">Mięso z kurczaka </div>
+                <div class="item">Migdały </div>
+                <div class="item">Miód </div>
+                <div class="item">Mleko </div>
+                <div class="item">Mleko w proszku </div>
+                <div class="item">Mrożonki </div>
+                <div class="item">Mrożony Morszczuk </div>
+                <div class="item">Naczepy </div>
+                <div class="item">Nafta </div>
+                <div class="item">Napoje </div>
+                <div class="item">Neony </div>
+                <div class="item">Nitroceluloza </div>
+                <div class="item">Ocet </div>
+                <div class="item">Olej </div>
+                <div class="item">Olej napędowy </div>
+                <div class="item">Olej silnikowy </div>
+                <div class="item">Opony </div>
+                <div class="item">Opony ciężarówek</div>
+                <div class="item">Owcza wełna </div>
+                <div class="item">Ołów </div>
+                <div class="item">Paluszki rybne </div>
+                <div class="item">Papier biurowy </div>
+                <div class="item">Papy </div>
+                <div class="item">Pasztet </div>
+                <div class="item">Pestycydy </div>
+                <div class="item">Piach </div>
+                <div class="item">Plastikowe granulki </div>
+                <div class="item">Plastikowe rolki filmowe </div>
+                <div class="item">Podchloryn sodu </div>
+                <div class="item">Podłoże do roślin </div>
+                <div class="item">Pomidory </div>
+                <div class="item">Potas </div>
+                <div class="item">Prefabrykaty podłogowe </div>
+                <div class="item">Prefabrykaty ścienne </div>
+                <div class="item">Prefabrykowane schody </div>
+                <div class="item">Prezenty </div>
+                <div class="item">Pszenica </div>
+                <div class="item">Pudła polistyrenowe</div>
+                <div class="item">Puste beczki </div>
+                <div class="item">Puste palety </div>
+                <div class="item">Puszkowana fasola </div>
+                <div class="item">Puszkowana wołowina </div>
+                <div class="item">Puszkowany Tuńczyk </div>
+                <div class="item">Płyn hamulcowy </div>
+                <div class="item">Płytki podłogowe na zewnątrz </div>
+                <div class="item">Płyty warstwowe </div>
+                <div class="item">Relingi </div>
+                <div class="item">Rolki trawy </div>
+                <div class="item">Ruda </div>
+                <div class="item">Rusztowania </div>
+                <div class="item">Rynny dachowe z miedzi</div>
+                <div class="item">Ryż </div>
+                <div class="item">Samochody </div>
+                <div class="item">Ser </div>
+                <div class="item">Serek wiejski </div>
+                <div class="item">Silnik wiatraka </div>
+                <div class="item">Skrzynie biegów </div>
+                <div class="item">Śliwki </div>
+                <div class="item">Smar grafitowy </div>
+                <div class="item">Sód </div>
+                <div class="item">Sól i przyprawy </div>
+                <div class="item">Sorbet chemiczny </div>
+                <div class="item">Środki czystości </div>
+                <div class="item">Suszarki </div>
+                <div class="item">Świetliki dachowe </div>
+                <div class="item">Świeże ryby </div>
+                <div class="item">Syrop klonowy </div>
+                <div class="item">Systemy kominowe </div>
+                <div class="item">Szklane panele </div>
+                <div class="item">Szkło pakowane </div>
+                <div class="item">Szyb wentylacyjny </div>
+                <div class="item">Słupki hektometryczne </div>
+                <div class="item">Traktor RS-666 </div>
+                <div class="item">Trociny </div>
+                <div class="item">Ubrania </div>
+                <div class="item">Użyte opakowania </div>
+                <div class="item">Użyte plastiki </div>
+                <div class="item">Walec drogowy </div>
+                <div class="item">Wędzone szprotki </div>
+                <div class="item">Wędzone węgorze </div>
+                <div class="item">Wieprzowina </div>
+                <div class="item">Wiertło D-50 </div>
+                <div class="item">Winogrono </div>
+                <div class="item">Wodorotlenek Potasu </div>
+                <div class="item">Wózki widłowe </div>
+                <div class="item">Wołowina </div>
+                <div class="item">Yacht </div>
+                <div class="item">Zabawki </div>
+                <div class="item">Zapasy medyczne </div>
+                <div class="item">Zastawy stołowe </div>
+                <div class="item">Zbiornik ciśnieniowy </div>
+                <div class="item">Zbiornik z paliwem </div>
+                <div class="item">Zbiorniki </div>
+                <div class="item">Żelazna rury </div>
+                <div class="item">Ziemniaki </div>
+                <div class="item">Zużyte Akumulatory </div>
+                <div class="item">Żwir </div>
+                <div class="item">Żyto </div>
+                <div class="item">Żywe bydło </div>
+                <div class="item">Złom </div>
+              </div>
+            </div>
+            {{ form_errors(form.cargo) }}
+          </div>
+          <div class="field">
+            <label>{% trans %}Weight{% endtrans %}</label>
+            <div class="ui right labeled input">
+              {{ form_widget(form.weight) }}
+              <div class="ui basic label">
+                KG
+              </div>
+            </div>
+            {{ form_errors(form.weight) }}
+          </div>
+        </div>
+        <div class="three fields">
+          <div class="field">
+            <label>{% trans %}Distance{% endtrans %}</label>
+            <div class="ui right labeled input">
+              {{ form_widget(form.distance) }}
+              <div class="ui basic label">
+                KM
+              </div>
+            </div>
+            {{ form_errors(form.distance) }}
+          </div>
+          <div class="field">
+            <label>{% trans %}Burned fuel{% endtrans %}</label>
+            <div class="ui right labeled input">
+              {{ form_widget(form.fuel) }}
+              <div class="ui basic label">
+                L
+              </div>
+            </div>
+            {{ form_errors(form.fuel) }}
+          </div>
+          <div class="field">
+            <label>{% trans %}Damage status{% endtrans %}</label>
+            <div class="ui right labeled input">
+              {{ form_widget(form.damage) }}
+              <div class="ui basic label">
+                %
+              </div>
+            </div>
+            {{ form_errors(form.damage) }}
+          </div>
+
+        </div>
+        <h4 class="ui dividing header">{% trans %}Time informations{% endtrans %}</h4>
+        <div class="two fields">
+          <div class="field">
+            <label>{% trans %}Start date{% endtrans %}</label>
+            <div class="ui right labeled input">
+              <div class="ui left icon input">
+                {{ form_widget(form.startDate) }}
+                <i class="calendar icon"></i>
+              </div>
+            </div>
+            {{ form_errors(form.startDate) }}
+          </div>
+          <div class="field">
+            <label>{% trans %}End date{% endtrans %}</label>
+            <div class="ui right labeled input">
+              <div class="ui left icon input">
+                {{ form_widget(form.endDate) }}
+                <i class="calendar icon"></i>
+              </div>
+            </div>
+            {{ form_errors(form.endDate) }}
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui action input">
+            <input type="text" readonly placeholder="{% trans %}Select screenshot{% endtrans %}">
+            {{ form_widget(form.screenshot) }}
+            <div class="ui icon button">
+              <i class="photo icon"></i>
+            </div>
+          </div>
+          {{ form_errors(form.screenshot) }}
+        </div>
+        <h4 class="ui dividing header">{% trans %}Refueling informations{% endtrans %}</h4>
+        <div class="two fields">
+          <div class="field">
+            <label>{% trans %}Country{% endtrans %}</label>
+            <div class="ui fluid search selection dropdown">
+              {{ form_widget(form.country) }}
+              <i class="dropdown icon"></i>
+              <div class="default text">{% trans %}Country{% endtrans %}</div>
+              <div class="menu">
+                <div class="item">Austria</div>
+                <div class="item">{% trans %}Belgium{% endtrans %}</div>
+                <div class="item">{% trans %}Czech Republic{% endtrans %}</div>
+                <div class="item">{% trans %}Denmark{% endtrans %}</div>
+                <div class="item">{% trans %}France{% endtrans %}</div>
+                <div class="item">{% trans %}Netherlands{% endtrans %}</div>
+                <div class="item">{% trans %}Germany{% endtrans %}</div>
+                <div class="item">{% trans %}Norway{% endtrans %}</div>
+                <div class="item">{% trans %}Poland{% endtrans %}</div>
+                <div class="item">{% trans %}Romania{% endtrans %}</div>
+                <div class="item">{% trans %}Sweden{% endtrans %}</div>
+                <div class="item">{% trans %}Great Britian{% endtrans %}</div>
+                <div class="item">{% trans %}Italy{% endtrans %}</div>
+              </div>
+            </div>
+          </div>
+          {{ form_errors(form.country) }}
+          <div class="field">
+            <label>{% trans %}Amount{% endtrans %}</label>
+            <div class="ui right labeled input">
+              {{ form_widget(form.fueled) }}
+              <div class="ui basic label">
+                L
+              </div>
+            </div>
+            {{ form_errors(form.fueled) }}
+          </div>
+        </div>
+
+        {% for flash_message in app.session.flashBag.get('notice') %}
+          <div class="ui positive message">
+            {{ flash_message|trans }}
+          </div>
+        {% endfor %}
+
+        {{ form_row(form.reportTransport, { 'attr': {'class': 'ui large blue fluid button'} }) }}
+        {{ form_end(form) }}
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+{% endblock content %}
+
+{% block extraJS %}
+  $('input:text, .ui.button', '.ui.action.input')
+  .on('click', function(e) {
+  $('input:file', $(e.target).parents()).click();
+  })
+  ;
+
+  $('input:file', '.ui.action.input')
+  .on('change', function(e) {
+  var name = e.target.files[0].name;
+  $('input:text', $(e.target).parent()).val(name);
+  })
+  ;
+{% endblock extraJS %}

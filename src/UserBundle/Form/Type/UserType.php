@@ -24,15 +24,16 @@ class UserType extends AbstractType
       ))
       ->add('plainPassword', RepeatedType::class, array(
           'type' => PasswordType::class,
+          'invalid_message' => 'user.plainPassword.not.match',
           'first_options'  => array(
             'attr' => array(
-              'placeholder' => 'Hasło'
+              'placeholder' => 'Password'
             ),
             'label' => false,
           ),
           'second_options' => array(
             'attr' => array(
-              'placeholder' => 'Powtórz hasło'
+              'placeholder' => 'Repeat password'
             ),
             'label' => false,
           ),
@@ -45,15 +46,15 @@ class UserType extends AbstractType
       ))
       ->add('avatar', ChoiceType::class, array(
         'choices' => array(
-          'Avatar 1' => 1,
-          'Avatar 2' => 2,
-          'Avatar 3' => 3,
-          'Avatar 4' => 4,
-          'Avatar 5' => 5,
-          'Avatar 6' => 6,
-          'Avatar 7' => 7,
-          'Avatar 8' => 8,
-          'Avatar 9' => 9,
+          'Avatar1' => 1,
+          'Avatar2' => 2,
+          'Avatar3' => 3,
+          'Avatar4' => 4,
+          'Avatar5' => 5,
+          'Avatar6' => 6,
+          'Avatar7' => 7,
+          'Avatar8' => 8,
+          'Avatar9' => 9,
         ),
         'expanded' => true,
         'label'    => false,

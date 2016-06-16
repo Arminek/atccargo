@@ -21,7 +21,7 @@ class CheckCodeType extends AbstractType
       ))
       ->add('activationCode', TextType::class, array(
         'attr' => array(
-          'placeholder' => 'Kod aktywacyjny'
+          'placeholder' => 'Registration code'
         ),
         'label' => false,
       ))

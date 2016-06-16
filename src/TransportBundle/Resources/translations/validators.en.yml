@@ -1,0 +1,10 @@
+transport.distance.not.integer: The value {{ value }} is not a valid {{ type }}
+transport.weight.not.integer: The value {{ value }} is not a valid {{ type }}
+transport.damage.not.integer: The value {{ value }} is not a valid {{ type }}
+transport.damage.min.range: You must be at least {{ limit }} tall to enter
+transport.damage.max.range: You cannot be taller than {{ limit }} to enter
+transport.fuel.not.integer: The value {{ value }} is not a valid {{ type }}
+transport.fueled.not.integer: The value {{ value }} is not a valid {{ type }}
+transport.screenshot.not.valid.image: Supported image types(.png, .jpeg, .jpg)
+transport.startDate.not.valid.format: This value is not a valid datetime
+transport.endDate.not.valid.format: This value is not a valid datetime

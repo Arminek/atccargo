@@ -7,7 +7,7 @@
         <h2 class="ui blue image header">
           <img src="{{ asset('images/logo.png') }}" class="image">
           <div class="content">
-            Zaloguj się na swoje konto
+            {% trans %}Log in to your account{% endtrans %}
           </div>
         </h2>
         <form class="ui large form" action="{{ path('login') }}" method="POST">
@@ -33,15 +33,15 @@
 
             {% for flash_message in app.session.flashBag.get('notice') %}
               <div class="ui positive message">
-                {{ flash_message }}
+                {{ flash_message|trans }}
               </div>
             {% endfor %}
 
-            <input type="submit" class="ui fluid large blue submit button" value="Zaloguj">
+            <input type="submit" class="ui fluid large blue submit button" value="{% trans %}Log in{% endtrans %}">
           </div>
         </form>
         <div class="ui info message">
-          Posiadasz klucz weryfikacyjny? <a href="{{ path('register_verification') }}">Zarejestruj sie</a>
+          {% trans %}Do you have a registration code?{% endtrans %} <a href="{{ path('register_verification') }}">{% trans %}Register now{% endtrans %}</a>
         </div>
       </div>
     </div>

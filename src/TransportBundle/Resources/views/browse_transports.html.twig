@@ -1,0 +1,45 @@
+{% extends "@App/base_layout.html.twig" %}
+
+{% set active_item = 'browse_transports' %}
+
+{% block content %}
+  <table class="ui celled left aligned table">
+    <thead class="center aligned">
+    <tr>
+      <th>Kierowca</th>
+      <th>Ładunek</th>
+      <th>Zarobek</th>
+      <th>Screen</th>
+      <th>Miasto startowe</th>
+      <th>Miasto docelowe</th>
+      <th>Data wysłania</th>
+      <th>Akcje</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for transport in transports %}
+      <tr>
+        <td>
+          <h4 class="ui image header">
+            <img src="{{ asset('images/avatar/2.jpg') }}" class="ui mini rounded image">
+            <div class="content">
+              {{ transport.userName|capitalize }}
+              <div class="sub header">ROLE_BOSS
+              </div>
+          </h4>
+        </td>
+        <td>{{ transport.cargo|capitalize }}</td>
+        <td>{{ transport.score }} PLN</td>
+        <td><a href="{{ transport.screenshot }}" target="_blank">Otwórz</a></td>
+        <td>{{ transport.startCity|capitalize }}</td>
+        <td>{{ transport.endCity|capitalize }}</td>
+        <td>{{ transport.endDate|date('Y-m-d H:i') }}</td>
+        <td class="center aligned">
+          <a class="ui green horizontal large label" href="manageTransport.php?id='.$outputTransports['id'].'&action=ok"><i class="check circle icon"></i>Zatwierdź</a>
+          <a class="ui red horizontal large label" href="manageTransport.php?id='.$outputTransports['id'].'&action=bad"><i class="remove circle icon"></i>Odrzuć</a>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
