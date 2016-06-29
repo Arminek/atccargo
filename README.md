@@ -1,4 +1,17 @@
-symfony
+Projekt strony ATC-Cargo
 =======
 
-A Symfony project created on June 3, 2016, 6:34 pm.
+### System rang
+* Szef
+* V-CE Szef
+* Dyspozytor
+* Kierowca
+* Okres testowy
+
+### Uprawnienia
+Niektóre rangi mają możliwość przeglądania transportów, przeglądania użytkowników.
+| Zakładka                | Ranga             |
+| ----------------------- | ----------------: |
+| Przeglądaj transporty   | Szef-Dyspozytor   |
+| Przeglądaj użytkowników | Szef              |
+| Dodaj pracownika        | Szef              |
