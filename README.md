@@ -9,9 +9,10 @@ Projekt strony ATC-Cargo
 * Okres testowy
 
 ### Uprawnienia
-Niektóre rangi mają możliwość przeglądania transportów, przeglądania użytkowników.
-| Zakładka                | Ranga             |
-| ----------------------- | ----------------: |
-| Przeglądaj transporty   | Szef-Dyspozytor   |
-| Przeglądaj użytkowników | Szef              |
-| Dodaj pracownika        | Szef              |
+Niektóre rangi mają możliwość przeglądania transportów, przeglądania użytkowników lub dodawania pracowników.
+
+| Zakładka                | Ranga                         |
+| ----------------------- | ----------------------------- |
+| Przeglądaj transporty   | Szef, V-CE Szef, Dyspozytor   |
+| Przeglądaj użytkowników | Szef                          |
+| Dodaj pracownika        | Szef                          |
