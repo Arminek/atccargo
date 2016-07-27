@@ -18,11 +18,6 @@ class UserExtension extends \Twig_Extension
     return 'user_extension';
   }
 
-  public function getGlobals()
-  {
-    return array('user' => $this->findAll());
-  }
-
   public function findAll()
   {
     return $this->doctrine->getRepository('UserBundle:User')->findAll();

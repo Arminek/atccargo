@@ -9,8 +9,8 @@ TransportBundle\Entity\Transport:
             generator:
                 strategy: AUTO
     fields:
-        userName:
-            type: string
+        employeeId:
+            type: integer
         startCity:
             type: string
         endCity:

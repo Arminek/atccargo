@@ -5,3 +5,19 @@ transport_report:
 transport_browse:
     path:     /browse
     defaults: { _controller: TransportBundle:Transport:notActivated }
+
+transport_activate:
+    path:     /activate/{id}
+    defaults: { _controller: TransportBundle:Transport:activateTransport }
+
+transport_remove:
+    path:     /remove/{id}
+    defaults: { _controller: TransportBundle:Transport:removeTransport }
+
+transports_show:
+    path:     /showall/{id}
+    defaults: { _controller: TransportBundle:Transport:showEmployeeTransports }
+
+transports_my:
+    path:     /show/my
+    defaults: { _controller: TransportBundle:Transport:showMyTransports }

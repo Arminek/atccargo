@@ -8,7 +8,7 @@ namespace TransportBundle\Entity;
 class Transport
 {
     private $id;
-    private $userName;
+    private $employeeId;
     private $startCity;
     private $endCity;
     private $cargo;
@@ -35,14 +35,14 @@ class Transport
         return $this->id;
     }
 
-    public function getUserName()
+    public function getEmployeeId()
     {
-        return $this->userName;
+        return $this->employeeId;
     }
 
-    public function setUserName($userName)
+    public function setEmployeeId($employeeId)
     {
-        $this->userName = $userName;
+        $this->employeeId = $employeeId;
     }
 
     public function getStartCity()

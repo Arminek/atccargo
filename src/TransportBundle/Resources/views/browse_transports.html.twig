@@ -21,10 +21,10 @@
       <tr>
         <td>
           <h4 class="ui image header">
-            <img src="{{ asset('images/avatar/2.jpg') }}" class="ui mini rounded image">
+            <img src="{{ asset('images/avatar/') }}{{ transport.avatar }}.jpg" class="ui mini rounded image">
             <div class="content">
-              {{ transport.userName|capitalize }}
-              <div class="sub header">ROLE_BOSS
+              {{ transport.username|capitalize }}
+              <div class="sub header">{{ transport.roles|trans }}
               </div>
           </h4>
         </td>
@@ -35,8 +35,8 @@
         <td>{{ transport.endCity|capitalize }}</td>
         <td>{{ transport.endDate|date('Y-m-d H:i') }}</td>
         <td class="center aligned">
-          <a class="ui green horizontal large label" href="manageTransport.php?id='.$outputTransports['id'].'&action=ok"><i class="check circle icon"></i>Zatwierdź</a>
-          <a class="ui red horizontal large label" href="manageTransport.php?id='.$outputTransports['id'].'&action=bad"><i class="remove circle icon"></i>Odrzuć</a>
+          <a class="ui green horizontal large label" href="{{ path('transport_activate', {'id': transport.id}) }}"><i class="check circle icon"></i>Zatwierdź</a>
+          <a class="ui red horizontal large label" href="{{ path('transport_remove', {'id': transport.id}) }}"><i class="remove circle icon"></i>Odrzuć</a>
         </td>
       </tr>
     {% endfor %}

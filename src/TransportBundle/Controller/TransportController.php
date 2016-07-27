@@ -28,13 +28,13 @@ class TransportController extends Controller
         ));
       }
 
-      $userName = $user = $this->get('security.token_storage')->getToken()->getUser()->getUserName();
+      $employeeId = $user = $this->get('security.token_storage')->getToken()->getUser()->getId();
       $score = $this->calculateScore($transport->getDistance(), $transport->getDamage());
       $transportId = $this->generateTransportId();
       $transport->setScore($score);
       $transport->setTransportId($transportId);
-      $transport->setUserName($userName);
-
+      $transport->setEmployeeId($employeeId);
+      
       $em = $this->getDoctrine()->getManager();
       $em->persist($transport);
       $em->flush();
@@ -108,5 +108,53 @@ class TransportController extends Controller
     $transportId = 'CGGE/'.date('M')[0].'000'.date('WdN').date('z')[0].$transportCount.'/'.date('isd');
 
     return $transportId;
+  }
+
+  public function activateTransportAction($id)
+  {
+    if ($this->get('security.authorization_checker')->isGranted('ROLE_DISPATCHER')) {
+      $em = $this->getDoctrine()
+          ->getRepository('TransportBundle:Transport')
+          ->activateById($id);
+
+      return $this->redirectToRoute('transport_browse');
+    }
+
+    return $this->redirectToRoute('dashboard');
+  }
+
+  public function removeTransportAction($id)
+  {
+    if ($this->get('security.authorization_checker')->isGranted('ROLE_DISPATCHER')) {
+      $em = $this->getDoctrine()
+          ->getRepository('TransportBundle:Transport')
+          ->removeById($id);
+
+      return $this->redirectToRoute('transport_browse');
+    }
+
+    return $this->redirectToRoute('dashboard');
+  }
+
+  public function showEmployeeTransportsAction($id)
+  {
+    $repository = $this->getDoctrine()->getRepository("TransportBundle:Transport");
+    $transports = $repository->findAllById($id);
+
+    return $this->render("@Transport/show_transports.html.twig", array(
+        'transports' => $transports,
+    ));
+  }
+
+  public function showMyTransportsAction()
+  {
+    $userId = $this->get('security.token_storage')->getToken()->getUser()->getId();
+
+    $repository = $this->getDoctrine()->getRepository('TransportBundle:Transport');
+    $transports = $repository->findAllById($userId);
+
+    return $this->render("@Transport/my_transports.html.twig", array(
+      'transports' => $transports,
+    ));
   }
 }

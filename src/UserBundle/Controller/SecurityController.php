@@ -10,6 +10,7 @@ use UserBundle\Form\Type\UserType;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Request;
 use UserBundle\Form\Type\CheckCodeType;
+use UserBundle\Form\Type\PositionType;
 
 class SecurityController extends Controller
 {
@@ -52,17 +53,16 @@ class SecurityController extends Controller
         );
 
         return $this->redirectToRoute('register_verification');
-      } else {
-
-        $role = $repository->getRoleByCode($code);
-
-        $session = new Session();
-        $session->set('DURING_REGISTER', true);
-        $session->set('code', $code);
-        $session->set('role', $role);
-
-        return $this->redirectToRoute('register');
       }
+
+      $role = $repository->getRoleByCode($code);
+
+      $session = new Session();
+      $session->set('code', $code);
+      $session->set('email', $email);
+      $session->set('role', $role);
+
+      return $this->redirectToRoute('register');
     }
 
     return $this->render(
@@ -171,7 +171,7 @@ class SecurityController extends Controller
 
       $this->addFlash(
         'notice',
-        'Email has been sent!'
+        'Email has been sent! '
       );
 
       return $this->redirectToRoute('employee_add');
@@ -183,57 +183,94 @@ class SecurityController extends Controller
     );
   }
 
-  public function transformRole($role)
-  {
-    switch($role)
-    {
-      case 'boss':
-        $role = 'ROLE_BOSS';
-        break;
-      case 'vice boss':
-        $role = 'ROLE_VICEBOSS';
-        break;
-      case 'dispatcher':
-        $role = 'ROLE_DISPATCHER';
-        break;
-      case 'driver':
-        $role = 'ROLE_DRIVER';
-        break;
-      case 'demo':
-        $role = 'ROLE_DEMO';
-        break;
-      case 'szef':
-        $role = 'ROLE_BOSS';
-        break;
-      case 'vice szef':
-        $role = 'ROLE_VICEBOSS';
-        break;
-      case 'dyspozytor':
-        $role = 'ROLE_DISPATCHER';
-        break;
-      case 'kierowca':
-        $role = 'ROLE_DRIVER';
-        break;
-      case 'okres testowy':
-        $role = 'ROLE_DEMO';
-        break;
-    }
-
-    return $role;
-  }
-
   /**
    * Check user inputted good registration code.
    */
   public function isDuringRegistration()
   {
     $session = new Session();
-    $result = $session->get('DURING_REGISTER');
+    $code = $session->get('code');
+    $email = $session->get('email');
 
-    if ($result == true) {
+    $repository = $this->getDoctrine()->getRepository('UserBundle:ActivationCode');
+
+    $code = $repository
+        ->findByCodeAndEmail($code, $email);
+
+    if (count($code) > 0)
+    {
       return true;
     } else {
-      return false;
+    return false;
+  }
+  }
+
+  public function manageEmployeesAction()
+  {
+    $repository = $this->getDoctrine()->getRepository("UserBundle:User");
+
+    $users = $repository->findAll();
+
+    return $this->render("@User/security/employee/manage_employees.html.twig", array(
+      'users' => $users,
+    ));
+  }
+
+  public function changePositionAction($id, Request $request) {
+    $repository = $this->getDoctrine()->getRepository('UserBundle:User');
+    $user = $repository->find($id);
+    
+    $form = $this->createForm(PositionType::class, $user);
+
+    $form->handleRequest($request);
+    if ($form->isSubmitted() && $form->isValid()) {
+
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($user);
+      $em->flush();
+      $em->refresh($user);
+
+      $this->addFlash(
+          'notice',
+          'Position has been changed! '
+      );
+
+      return $this->redirectToRoute('dashboard');
     }
+
+    return $this->render(
+        '@User/security/employee/change_position.html.twig',
+        array('form' => $form->createView())
+    );
+  }
+
+  public function removeUserAction($id)
+  {
+    if ($this->get('security.authorization_checker')->isGranted('ROLE_BOSS')) {
+      $repository = $this->getDoctrine()->getRepository('UserBundle:User');
+      $repository->removeById($id);
+    }
+
+    return $this->redirectToRoute('dashboard');
+  }
+
+  public function showDriverListAction()
+  {
+    $repository = $this->getDoctrine()->getRepository("UserBundle:User");
+    $users = $repository->findAll();
+
+    return $this->render('@User/driver_list.html.twig', array(
+      'users' => $users,
+    ));
+  }
+
+  public function showDriverStatisticsAction()
+  {
+    $repository = $this->getDoctrine()->getRepository("UserBundle:User");
+    $users = $repository->findAll();
+
+    return $this->render('@User/driver_statistics.html.twig', array(
+      'users' => $users,
+    ));
   }
 }

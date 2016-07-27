@@ -130,6 +130,26 @@
                    <source>Send a request</source>
                    <target>Wyślij zgłoszenie</target>
             </trans-unit>
+            <trans-unit id="role_boss">
+                   <source>ROLE_BOSS</source>
+                   <target>Szef</target>
+            </trans-unit>
+            <trans-unit id="role_viceboss">
+                   <source>ROLE_VICEBOSS</source>
+                   <target>Vice Szef</target>
+            </trans-unit>
+            <trans-unit id="role_dispatcher">
+                   <source>ROLE_DISPATCHER</source>
+                   <target>Dyspozytor</target>
+            </trans-unit>
+            <trans-unit id="role_driver">
+                   <source>ROLE_DRIVER</source>
+                   <target>Kierowca</target>
+            </trans-unit>
+            <trans-unit id="role_demo">
+                   <source>ROLE_DEMO</source>
+                   <target>Okres testowy</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

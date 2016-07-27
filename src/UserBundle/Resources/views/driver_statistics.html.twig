@@ -1,0 +1,36 @@
+{% extends "@App/base_layout.html.twig" %}
+
+{% set active_item = 'driver_statistics' %}
+
+{% block content %}
+    <table class="ui celled left aligned table">
+        <thead class="center aligned">
+        <tr>
+            <th>Kierowca</th>
+            <th>Spalone paliwo</th>
+            <th>Przebyty dystans</th>
+            <th>Wykonanych zleceń</th>
+            <th>Zarobionych pieniędzy</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>
+                    <h4 class="ui image header">
+                        <img src="{{ asset('images/avatar/') }}{{ user.avatar }}.jpg" class="ui mini rounded image">
+                        <div class="content">
+                            {{ user.username|capitalize }}
+                            <div class="sub header">{{ user.roles|join("")|trans }}
+                            </div>
+                    </h4>
+                </td>
+                <td>totalFuel L</td>
+                <td>totalDistance KM</td>
+                <td>$totalTransports</td>
+                <td>$totalMoney PLN</th>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

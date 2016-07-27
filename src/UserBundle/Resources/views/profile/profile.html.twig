@@ -41,7 +41,7 @@
             <div class="ui left icon input">
               <i class="star icon"></i>
 
-              <input type="text" value="{{ role|trans }}" disabled>
+              <input type="text" value="{{ app.user.roles|join("")|trans }}" disabled>
             </div>
           </div>
         </div>

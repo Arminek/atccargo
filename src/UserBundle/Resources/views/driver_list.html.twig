@@ -1,0 +1,36 @@
+{% extends "@App/base_layout.html.twig" %}
+
+{% set active_item = 'list_of_drivers' %}
+
+{% block content %}
+    <table class="ui celled left aligned table">
+        <thead class="center aligned">
+        <tr>
+            <th>Kierowca</th>
+            <th>Spalone paliwo</th>
+            <th>Przebyty dystans</th>
+            <th>Wykonanych zleceń</th>
+            <th>Akcje</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>
+                    <h4 class="ui image header">
+                        <img src="{{ asset('images/avatar/') }}{{ user.avatar }}.jpg" class="ui mini rounded image">
+                        <div class="content">
+                            {{ user.username|capitalize }}
+                            <div class="sub header">{{ user.roles|join("")|trans }}
+                            </div>
+                    </h4>
+                </td>
+                <td>{#{{ fuel_burned }}#}</td>
+                <td>{#{{ distance_travelled }}#}</td>
+                <td>{#{{ transports_done }}#}</td>
+                <td class="center aligned"><a class="ui green horizontal large label" href="{{ path('transports_show', {'id': user.id}) }}"><i class="check circle icon"></i>Pokaż transporty</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

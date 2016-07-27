@@ -11,14 +11,32 @@ namespace TransportBundle\Repository;
 class TransportRepository extends \Doctrine\ORM\EntityRepository
 {
   public function findAll() {
+      return $this->getEntityManager()
+          ->createQuery('SELECT t FROM TransportBundle:Transport t ORDER BY t.id ASC')
+          ->getResult();
+  }
+
+  public function findAllById($id) {
     return $this->getEntityManager()
-      ->createQuery('SELECT t FROM TransportBundle:Transport t ORDER BY t.id ASC')
-      ->getResult();
+        ->createQuery("SELECT t FROM TransportBundle:Transport t WHERE t.employeeId = $id ORDER BY t.id ASC")
+        ->getResult();
   }
 
   public function findNotActivated() {
     return $this->getEntityManager()
-      ->createQuery('SELECT t FROM TransportBundle:Transport t WHERE t.active = 0 ORDER BY t.id ASC')
+      ->createQuery('SELECT t.id, t.cargo, t.score, t.screenshot, t.startCity, t.endCity, t.endDate, u.username, u.roles, u.avatar FROM TransportBundle:Transport t LEFT JOIN UserBundle:User u WITH t.employeeId = u.id WHERE t.active = 0 ORDER BY t.id ASC')
       ->getResult();
+  }
+
+  public function activateById($id) {
+    return $this->getEntityManager()
+        ->createQuery("UPDATE TransportBundle:Transport t SET t.active = 1 WHERE t.id = $id")
+        ->getResult();
+  }
+
+  public function removeById($id) {
+    return $this->getEntityManager()
+        ->createQuery("DELETE FROM TransportBundle:Transport t WHERE t.id = $id")
+        ->getResult();
   }
 }

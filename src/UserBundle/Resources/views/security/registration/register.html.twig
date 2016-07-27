@@ -42,6 +42,12 @@
     {%- endif -%}
 {%- endblock form_label -%}
 
+{%- block form_row -%}
+    {{- form_label(form) -}}
+    {{- form_errors(form) -}}
+    {{- form_widget(form) -}}
+{%- endblock form_row -%}
+
 {% block content %}
     <div class="ui center aligned segment">
         <div class="ui center aligned grid">

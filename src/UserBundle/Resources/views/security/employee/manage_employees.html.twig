@@ -1,0 +1,61 @@
+{% extends "@App/base_layout.html.twig" %}
+
+{% set active_item = 'browse_employees' %}
+
+{% block content %}
+    {% for user in users %}
+        <div class="ui small modal {{ user.id }}">
+            <div class="header">Zwalnianie kierowcy</div>
+            <div class="content">
+                <p>Czy na pewno chcesz zwolnić tego kierowcę?</p>
+            </div>
+            <div class="actions">
+                <a class="ui negative button">Nie</a>
+                <a href="{{ path('employee_remove', {'id': user.id}) }}" class="ui positive right labeled icon button">
+                    Tak
+                    <i class="checkmark icon"></i>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+
+    <table class="ui celled left aligned table">
+        <thead class="center aligned">
+            <tr>
+                <th>Kierowca</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>
+                        <h4 class="ui image header">
+                            <img src="{{ asset('images/avatar/') }}{{ user.avatar }}.jpg" class="ui mini rounded image">
+                            <div class="content">
+                                {{ user.username|capitalize }}
+                                <div class="sub header">{{ user.roles|join("")|trans }}
+                                </div>
+                        </h4>
+                    </td>
+                    <td>
+                        <a href="{{ path('transports_show', {'id': user.id}) }}" class="ui blue horizontal large label"><i class="truck icon"></i>Pokaż wszystkie transporty</a>
+                        <a href="{{ path('employee_position_change', {'id': user.id}) }}" class="ui orange horizontal large label"><i class="star icon"></i>Zmień stanowisko</a>
+                        <a id="modal-remove-{{ user.id }}" class="ui red horizontal large label"><i class="remove circle icon"></i>Zwolnij</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block extraJS %}
+    {% for user in users %}
+        $( "#modal-remove-{{ loop.index }}" ).click(function() {
+            $('.small.modal.{{ loop.index }}')
+                .modal('show')
+            ;
+        });
+    {% endfor %}
+{% endblock %}
+

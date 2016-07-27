@@ -1,0 +1,67 @@
+{% extends "@App/base_layout.html.twig" %}
+
+{% set active_item = 'browse_employees' %}
+
+{% block content %}
+    <table class="ui celled center aligned table">
+        <thead class="center aligned">
+        {% if is_granted('ROLE_BOSS') %}
+            <tr>
+                <th>Data wysłania</th>
+                <th>Ładunek</th>
+                <th>Ciężar</th>
+                <th>Dystans</th>
+                <th>Screen</th>
+                <th>Miasto startowe</th>
+                <th>Miasto docelowe</th>
+                <th>Akcje</th>
+            </tr>
+
+            {% else %}
+                <tr>
+                    <th>Data wysłania</th>
+                    <th>Ładunek</th>
+                    <th>Ciężar</th>
+                    <th>Dystans</th>
+                    <th>Zarobione pieniądze</th>
+                    <th>Screen</th>
+                    <th>Miasto startowe</th>
+                    <th>Miasto docelowe</th>
+                </tr>
+        {% endif %}
+        </thead>
+        <tbody>
+        {% for transport in transports %}
+            {% if is_granted('ROLE_BOSS') %}
+                <tr>
+                    <td>{{ transport.endDate|date('Y-m-d H:i') }}</td>
+                    <td>{{ transport.cargo|capitalize }}</td>
+                    <td>{{ transport.weight }} KG</td>
+                    <td>{{ transport.distance }} KM</td>
+                    <td><a href="{{ transport.screenshot }}" target="_blank">Otwórz</a></td>
+                    <td>{{ transport.startCity|capitalize }}</td>
+                    <td>{{ transport.endCity|capitalize }}</td>
+                    <td class="center aligned">
+                        {% if transport.active == 0 %}
+                            <a class="ui green horizontal large label" href="{{ path('transport_activate', {'id': transport.id}) }}"><i class="check circle icon"></i>Zatwierdź</a>
+                        {% endif %}
+                        <a class="ui red horizontal large label" href="{{ path('transport_remove', {'id': transport.id}) }}"><i class="remove circle icon"></i>Usuń</a>
+                    </td>
+                </tr>
+
+                {% else %}
+                    <tr>
+                        <td>{{ transport.endDate|date('Y-m-d H:i') }}</td>
+                        <td>{{ transport.cargo|capitalize }}</td>
+                        <td>{{ transport.weight }} KG</td>
+                        <td>{{ transport.distance }} KM</td>
+                        <td>{{ transport.score }} PLN</td>
+                        <td><a href="{{ transport.screenshot }}" target="_blank">Otwórz</a></td>
+                        <td>{{ transport.startCity|capitalize }}</td>
+                        <td>{{ transport.endCity|capitalize }}</td>
+                    </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

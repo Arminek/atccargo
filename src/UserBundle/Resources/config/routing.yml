@@ -24,3 +24,23 @@ profile:
 employee_add:
   path: /employee/add
   defaults: { _controller: UserBundle:Security:employeeAdd }
+
+employees_manage:
+  path: /employees/manage
+  defaults: { _controller: UserBundle:Security:manageEmployees }
+
+employee_position_change:
+  path: /employee/position/change/{id}
+  defaults: { _controller: UserBundle:Security:changePosition }
+
+employee_remove:
+  path: /employee/remove/{id}
+  defaults: { _controller: UserBundle:Security:removeUser }
+
+driver_list:
+  path: /drivers/list
+  defaults: { _controller: UserBundle:Security:showDriverList }
+
+driver_statistics:
+  path: /drivers/statistics
+  defaults: { _controller: UserBundle:Security:showDriverStatistics }

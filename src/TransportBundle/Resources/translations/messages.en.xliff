@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="pl" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="zglaszanie_transportu">
+                   <source>Zgłaszanie transportu</source>
+                   <target>Reporting transport</target>
+            </trans-unit>
+            <trans-unit id="informacje_o_transporcie">
+                   <source>Informacje o transporcie</source>
+                   <target>Transport informations</target>
+            </trans-unit>
+            <trans-unit id="start_city">
+                   <source>Start city</source>
+                   <target>Miasto startowe</target>
+            </trans-unit>
+            <trans-unit id="destination_city">
+                   <source>Destination city</source>
+                   <target>Miasto docelowe</target>
+            </trans-unit>
+            <trans-unit id="cargo">
+                   <source>Cargo</source>
+                   <target>Ładunek</target>
+            </trans-unit>
+            <trans-unit id="weight">
+                   <source>Weight</source>
+                   <target>Ciężar</target>
+            </trans-unit>
+            <trans-unit id="distance">
+                   <source>Distance</source>
+                   <target>Dystans</target>
+            </trans-unit>
+            <trans-unit id="burned_fuel">
+                   <source>Burned fuel</source>
+                   <target>Spalone paliwo</target>
+            </trans-unit>
+            <trans-unit id="damage_status">
+                   <source>Damage status</source>
+                   <target>Uszkodzenia</target>
+            </trans-unit>
+            <trans-unit id="time_informations">
+                   <source>Time informations</source>
+                   <target>Informacje o czasie</target>
+            </trans-unit>
+            <trans-unit id="start_date">
+                   <source>Start date</source>
+                   <target>Data rozpoczęcia</target>
+            </trans-unit>
+            <trans-unit id="end_date">
+                   <source>End date</source>
+                   <target>Data zakończenia</target>
+            </trans-unit>
+            <trans-unit id="select_screenshot">
+                   <source>Select screenshot</source>
+                   <target>Wybierz screenshot</target>
+            </trans-unit>
+            <trans-unit id="refueling_informations">
+                   <source>Refueling informations</source>
+                   <target>Informacje o tankowaniu</target>
+            </trans-unit>
+            <trans-unit id="country">
+                   <source>Country</source>
+                   <target>Kraj</target>
+            </trans-unit>
+            <trans-unit id="czech_republic">
+                   <source>Czech Republic</source>
+                   <target>Czechy</target>
+            </trans-unit>
+            <trans-unit id="denmark">
+                   <source>Denmark</source>
+                   <target>Dania</target>
+            </trans-unit>
+            <trans-unit id="france">
+                   <source>France</source>
+                   <target>Francja</target>
+            </trans-unit>
+            <trans-unit id="netherlands">
+                   <source>Netherlands</source>
+                   <target>Dania</target>
+            </trans-unit>
+            <trans-unit id="germany">
+                   <source>Germany</source>
+                   <target>Niemcy</target>
+            </trans-unit>
+            <trans-unit id="norway">
+                   <source>Norway</source>
+                   <target>Norwegia</target>
+            </trans-unit>
+            <trans-unit id="poland">
+                   <source>Poland</source>
+                   <target>Polska</target>
+            </trans-unit>
+            <trans-unit id="belgium">
+                   <source>Belgium</source>
+                   <target>Belgia</target>
+            </trans-unit>
+            <trans-unit id="romania">
+                   <source>Romania</source>
+                   <target>Rumunia</target>
+            </trans-unit>
+            <trans-unit id="sweden">
+                   <source>Sweden</source>
+                   <target>Szwecja</target>
+            </trans-unit>
+            <trans-unit id="great_britian">
+                   <source>Great Britian</source>
+                   <target>Wielka Brytania</target>
+            </trans-unit>
+            <trans-unit id="italy">
+                   <source>Italy</source>
+                   <target>Włochy</target>
+            </trans-unit>
+            <trans-unit id="amount">
+                   <source>Amount</source>
+                   <target>Ilość</target>
+            </trans-unit>
+            <trans-unit id="transport_has_been_reported">
+                   <source>Transport has been reported!</source>
+                   <target>Transport został zgłoszony!</target>
+            </trans-unit>
+            <trans-unit id="startDate_placeholder">
+                   <source>2016-03-11 8:45</source>
+                   <target>2016-03-11 8:45</target>
+            </trans-unit>
+            <trans-unit id="endDate_placeholder">
+                   <source>2016-03-12 23:12</source>
+                   <target>2016-03-12 23:12</target>
+            </trans-unit>
+            <trans-unit id="send_a_request">
+                   <source>Send a request</source>
+                   <target>Wyślij zgłoszenie</target>
+            </trans-unit>
+            <trans-unit id="role_boss">
+                   <source>ROLE_BOSS</source>
+                   <target>Szef</target>
+            </trans-unit>
+            <trans-unit id="role_viceboss">
+                   <source>ROLE_VICEBOSS</source>
+                   <target>Vice Szef</target>
+            </trans-unit>
+            <trans-unit id="role_dispatcher">
+                   <source>ROLE_DISPATCHER</source>
+                   <target>Dyspozytor</target>
+            </trans-unit>
+            <trans-unit id="role_driver">
+                   <source>ROLE_DRIVER</source>
+                   <target>Kierowca</target>
+            </trans-unit>
+            <trans-unit id="role_demo">
+                   <source>ROLE_DEMO</source>
+                   <target>Okres testowy</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

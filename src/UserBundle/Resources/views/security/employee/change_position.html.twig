@@ -1,0 +1,46 @@
+{% extends "@App/base_layout.html.twig" %}
+
+{% set active_item = 'browse_employees' %}
+
+{% block content %}
+    <div class="ui center aligned grid">
+        <div class="six wide column">
+            <h1 class="ui blue image header">
+                <i class="blue square write icon"></i>
+                <div class="content">
+                    Zmiana stanowiska
+                </div>
+            </h1>
+
+            <div class="ui stacked segment">
+                {{ form_start(form, {'attr': {'class': 'ui large form'}}) }}
+                <div class="field">
+                    <div class="ui selection dropdown">
+                        {{ form_row(form.roles, {'value': ''}) }}
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Position</div>
+                        <div class="menu">
+                            <div class="item">Boss</div>
+                            <div class="item">Vice Boss</div>
+                            <div class="item">Dispatcher</div>
+                            <div class="item">Driver</div>
+                            <div class="item">Demo</div>
+                        </div>
+                    </div>
+                </div>
+
+                {% for flash_message in app.session.flashBag.get('notice') %}
+                    <div class="ui positive message">
+                        {{ flash_message|trans }}
+                    </div>
+                {% endfor %}
+
+                {{ form_errors(form) }}
+
+                <input type="submit" value="Zmień stanowisko" class="ui blue fluid large button">
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
