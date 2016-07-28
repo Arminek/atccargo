@@ -8,6 +8,12 @@ UserBundle\Entity\User:
             id: true
             generator:
                 strategy: AUTO
+
+    oneToMany:
+        transports:
+            targetEntity: Transport
+            mappedBy: user
+
     fields:
         username:
             type: string

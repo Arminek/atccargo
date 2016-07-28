@@ -5,14 +5,14 @@
 {% block content %}
     {% for user in users %}
         <div class="ui small modal {{ user.id }}">
-            <div class="header">Zwalnianie kierowcy</div>
+            <div class="header">{% trans %}Terminating a employee{% endtrans %}</div>
             <div class="content">
-                <p>Czy na pewno chcesz zwolnić tego kierowcę?</p>
+                <p>{% trans %}Are you sure want to terminate this employee?{% endtrans %}</p>
             </div>
             <div class="actions">
-                <a class="ui negative button">Nie</a>
-                <a href="{{ path('employee_remove', {'id': user.id}) }}" class="ui positive right labeled icon button">
-                    Tak
+                <a class="ui positive button">{% trans %}No{% endtrans %}</a>
+                <a href="{{ path('employee_remove', {'id': user.id}) }}" class="ui negative right labeled icon button">
+                    {% trans %}Terminate{% endtrans %}
                     <i class="checkmark icon"></i>
                 </a>
             </div>
@@ -22,8 +22,8 @@
     <table class="ui celled left aligned table">
         <thead class="center aligned">
             <tr>
-                <th>Kierowca</th>
-                <th>Akcje</th>
+                <th>{% trans %}Employee{% endtrans %}</th>
+                <th>{% trans %}Actions{% endtrans %}</th>
             </tr>
         </thead>
         <tbody>
@@ -39,9 +39,9 @@
                         </h4>
                     </td>
                     <td>
-                        <a href="{{ path('transports_show', {'id': user.id}) }}" class="ui blue horizontal large label"><i class="truck icon"></i>Pokaż wszystkie transporty</a>
-                        <a href="{{ path('employee_position_change', {'id': user.id}) }}" class="ui orange horizontal large label"><i class="star icon"></i>Zmień stanowisko</a>
-                        <a id="modal-remove-{{ user.id }}" class="ui red horizontal large label"><i class="remove circle icon"></i>Zwolnij</a>
+                        <a href="{{ path('transports_show', {'id': user.id}) }}" class="ui blue horizontal large label"><i class="truck icon"></i>{% trans %}Show all transports{% endtrans %}</a>
+                        <a href="{{ path('employee_position_change', {'id': user.id}) }}" class="ui orange horizontal large label"><i class="star icon"></i>{% trans %}Change position{% endtrans %}</a>
+                        <a id="modal-remove-{{ user.id }}" class="ui red horizontal large label"><i class="remove circle icon"></i>{% trans %}Terminate{% endtrans %}</a>
                     </td>
                 </tr>
             {% endfor %}
@@ -50,7 +50,7 @@
 {% endblock %}
 
 {% block extraJS %}
-    {% for user in users %}
+    {% for i in 0..10 %}
         $( "#modal-remove-{{ loop.index }}" ).click(function() {
             $('.small.modal.{{ loop.index }}')
                 .modal('show')

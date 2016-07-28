@@ -122,8 +122,8 @@
                   <source>Details</source>
                   <target>Szczegóły</target>
             </trans-unit>
-            <trans-unit id="adding_an_employee">
-                  <source>Adding an employee</source>
+            <trans-unit id="adding_a_employee">
+                  <source>Adding a employee</source>
                   <target>Dodawanie pracownika</target>
             </trans-unit>
             <trans-unit id="position">
@@ -201,6 +201,46 @@
             <trans-unit id="account_has_been_created">
                    <source>Account has been created!</source>
                    <target>Rejestracja przebiegła pomyślnie, możesz się zalogować!</target>
+            </trans-unit>
+            <trans-unit id="position_has_been_changed">
+                    <source>Position has been changed!</source>
+                    <target>Stanowisko zostało zmienione!</target>
+            </trans-unit>
+            <trans-unit id="changing_position">
+                    <source>Changing position</source>
+                    <target>Zmiana stanowiska</target>
+            </trans-unit>
+            <trans-unit id="terminating_a_employee">
+                    <source>Terminating a employee</source>
+                    <target>Zwalnianie pracownika</target>
+            </trans-unit>
+            <trans-unit id="are_you_sure_want_to_terminate_this_employee">
+                    <source>Are you sure want to terminate this employee?</source>
+                    <target>Czy na pewno chcesz zwolnić tego pracownika?</target>
+            </trans-unit>
+            <trans-unit id="no">
+                    <source>No</source>
+                    <target>Nie</target>
+            </trans-unit>
+            <trans-unit id="terminate">
+                    <source>Terminate</source>
+                    <target>Zwolnij</target>
+            </trans-unit>
+            <trans-unit id="employee">
+                    <source>Employee</source>
+                    <target>Pracownik</target>
+            </trans-unit>
+            <trans-unit id="actions">
+                    <source>Actions</source>
+                    <target>Akcje</target>
+            </trans-unit>
+            <trans-unit id="show_all_transports">
+                    <source>Show all transports</source>
+                    <target>Pokaż wszystkie transporty</target>
+            </trans-unit>
+            <trans-unit id="change_position">
+                    <source>Change position</source>
+                    <target>Zmień stanowisko</target>
             </trans-unit>
         </body>
     </file>

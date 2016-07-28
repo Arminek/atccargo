@@ -1,6 +1,6 @@
 TransportBundle\Entity\Transport:
     type: entity
-    table: transport
+    table: transports
     repositoryClass: TransportBundle\Repository\TransportRepository
     id:
         id:
@@ -8,9 +8,16 @@ TransportBundle\Entity\Transport:
             id: true
             generator:
                 strategy: AUTO
+
+    manyToOne:
+        user:
+            targetEntity: User
+            inversedBy: transports
+            joinColumn:
+                name: id
+                referencedColumnName: employeeId
+
     fields:
-        employeeId:
-            type: integer
         startCity:
             type: string
         endCity:
@@ -34,6 +41,8 @@ TransportBundle\Entity\Transport:
         transportId:
             type: string
             unique: true
+        userId:
+            type: integer
         screenshot:
             type: string
             unique: true

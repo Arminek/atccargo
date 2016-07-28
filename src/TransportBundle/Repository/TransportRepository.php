@@ -45,4 +45,12 @@ class TransportRepository extends \Doctrine\ORM\EntityRepository
         ->createQuery("DELETE FROM TransportBundle:Transport t WHERE t.id = $id")
         ->getResult();
   }
+
+  public function findFiveById($id)
+  {
+    return $this->getEntityManager()
+        ->createQuery("SELECT t FROM TransportBundle:Transport t WHERE t.employeeId = $id AND t.active = 1 ORDER BY t.id")
+        ->setMaxResults(5)
+        ->getResult();
+  }
 }

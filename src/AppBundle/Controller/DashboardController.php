@@ -8,6 +8,13 @@ class DashboardController extends Controller
 {
   public function showAction()
   {
-    return $this->render("@User/home.html.twig");
+    $userId = $this->get('security.token_storage')->getToken()->getUser()->getId();
+
+    $transports = $this->getDoctrine()->getRepository('TransportBundle:Transport')
+        ->findFiveById($userId);
+
+    return $this->render('@User/home.html.twig', array(
+      'transports' => $transports,
+    ));
   }
 }

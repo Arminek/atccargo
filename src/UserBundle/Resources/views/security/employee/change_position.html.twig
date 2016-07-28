@@ -8,7 +8,7 @@
             <h1 class="ui blue image header">
                 <i class="blue square write icon"></i>
                 <div class="content">
-                    Changing a position
+                    {% trans %}Changing a position{% endtrans %}
                 </div>
             </h1>
 
@@ -18,7 +18,7 @@
                     <div class="ui selection dropdown">
                         {{ form_row(form.roles, {'value': ''}) }}
                         <i class="dropdown icon"></i>
-                        <div class="default text">Position</div>
+                        <div class="default text">{% trans %}Position{% endtrans %}</div>
                         <div class="menu">
                             <div class="item">{% trans %}Boss{% endtrans %}</div>
                             <div class="item">{% trans %}Vice Boss{% endtrans %}</div>
@@ -34,8 +34,6 @@
                         {{ flash_message|trans }}
                     </div>
                 {% endfor %}
-
-                {{ form_errors(form) }}
 
                 <input type="submit" value="Zmień stanowisko" class="ui blue fluid large button">
                 {{ form_end(form) }}

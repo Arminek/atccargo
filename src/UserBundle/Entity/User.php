@@ -2,6 +2,7 @@
 
 namespace UserBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class User implements UserInterface, \Serializable
@@ -14,6 +15,11 @@ class User implements UserInterface, \Serializable
     private $activationCode;
     private $avatar;
     private $roles;
+    private $transports;
+
+    public function __construct() {
+        $this->transports = new ArrayCollection();
+    }
 
     public function getId()
     {

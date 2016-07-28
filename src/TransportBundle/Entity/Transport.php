@@ -1,6 +1,7 @@
 <?php
 
 namespace TransportBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Transport
@@ -24,6 +25,7 @@ class Transport
     private $active;
     private $startDate;
     private $endDate;
+    private $user;
 
     public function __construct()
     {

@@ -10,16 +10,24 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td class="center aligned">24.10.2016<br/>16:32</td>
-        <td class="collapsing"><i class="truck large circular inverted blue icon"></i></td>
-        <td>
-          <b>{% trans %}Realized transport with ID{% endtrans %}: CGGE/A0001512211/321812</b><br/>
-          {% trans %}Transport a cargo{% endtrans %} <b>Kartofle</b> {% trans %}from{% endtrans %} <b>Warszawa</b> {% trans %}to{% endtrans %} <b>Kraków</b>.<br/>
-          <span id="details-1">{% trans %}Mileage{% endtrans %} <b>1430 KM</b> {% trans %}with a cargo weighing{% endtrans %} <b>1400 KG</b></span><br>
-          <a style="cursor: pointer;"><i class="add square icon"></i>{% trans %}Details{% endtrans %}</a>
-        </td>
-      </tr>
+      {% if transports %}
+        {% for transport in transports %}
+          <tr>
+            <td class="center aligned">{{ transport.endDate|date('Y-m-d') }}<br/>{{ transport.endDate|date('H:i') }}</td>
+            <td class="collapsing"><i class="truck large circular inverted blue icon"></i></td>
+            <td>
+              <b>{% trans %}Realized transport with ID{% endtrans %}: {{ transport.transportId }}</b><br/>
+              {% trans %}Transport a cargo{% endtrans %} <b>{{ transport.cargo|capitalize }}</b> {% trans %}from{% endtrans %} <b>{{ transport.startCity|capitalize }}</b> {% trans %}to{% endtrans %} <b>{{ transport.endCity|capitalize }}</b>.<br/>
+              <span id="details-1">{% trans %}Mileage{% endtrans %} <b>{{ transport.distance }} KM</b> {% trans %}with a cargo weighing{% endtrans %} <b>{{ transport.weight }} KG</b></span><br>
+              <a style="cursor: pointer;"><i class="add square icon"></i>{% trans %}Details{% endtrans %}</a>
+            </td>
+          </tr>
+        {% endfor %}
+        {% else %}
+          <tr>
+            <td><b>Brak transportów!</b></td>
+          </tr>
+      {% endif %}
     </tbody>
   </table>
 {% endblock %}
