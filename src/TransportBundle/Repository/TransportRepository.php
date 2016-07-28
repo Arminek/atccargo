@@ -34,6 +34,12 @@ class TransportRepository extends \Doctrine\ORM\EntityRepository
         ->getResult();
   }
 
+  public function deactivateById($id) {
+    return $this->getEntityManager()
+        ->createQuery("UPDATE TransportBundle:Transport t SET t.active = 0 WHERE t.id = $id")
+        ->getResult();
+  }
+
   public function removeById($id) {
     return $this->getEntityManager()
         ->createQuery("DELETE FROM TransportBundle:Transport t WHERE t.id = $id")

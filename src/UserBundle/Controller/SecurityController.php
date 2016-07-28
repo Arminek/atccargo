@@ -3,6 +3,7 @@
 namespace UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 use UserBundle\Entity\ActivationCode;
 use UserBundle\Form\Type\ActivationCodeType;
 use UserBundle\Entity\User;
@@ -32,43 +33,47 @@ class SecurityController extends Controller
 
   public function registerVerificationAction(Request $request)
   {
-    $activationCode = new ActivationCode();
-    $form = $this->createForm(CheckCodeType::class, $activationCode);
+    if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+      $activationCode = new ActivationCode();
+      $form = $this->createForm(CheckCodeType::class, $activationCode);
 
-    $form->handleRequest($request);
-    if ($form->isSubmitted() && $form->isValid()) {
+      $form->handleRequest($request);
+      if ($form->isSubmitted() && $form->isValid()) {
 
-      $repository = $this->getDoctrine()->getRepository('UserBundle:ActivationCode');
-      $code = $activationCode->getActivationCode();
-      $email = $activationCode->getEmail();
+        $repository = $this->getDoctrine()->getRepository('UserBundle:ActivationCode');
+        $code = $activationCode->getActivationCode();
+        $email = $activationCode->getEmail();
 
-      $registrationCode = $repository
-        ->findByCodeAndEmail($code, $email);
+        $registrationCode = $repository
+            ->findByCodeAndEmail($code, $email);
 
-      if (count($registrationCode) < 1) {
+        if (count($registrationCode) < 1) {
 
-        $this->addFlash(
-          'notice',
-          'transport_report_succes'
-        );
+          $this->addFlash(
+              'notice',
+              'transport_report_succes'
+          );
 
-        return $this->redirectToRoute('register_verification');
+          return $this->redirectToRoute('register_verification');
+        }
+
+        $role = $repository->getRoleByCode($code);
+
+        $session = new Session();
+        $session->set('code', $code);
+        $session->set('email', $email);
+        $session->set('role', $role);
+
+        return $this->redirectToRoute('register');
       }
 
-      $role = $repository->getRoleByCode($code);
-
-      $session = new Session();
-      $session->set('code', $code);
-      $session->set('email', $email);
-      $session->set('role', $role);
-
-      return $this->redirectToRoute('register');
+      return $this->render(
+          '@User/security/registration/register_verification.html.twig',
+          array('form' => $form->createView())
+      );
     }
 
-    return $this->render(
-      '@User/security/registration/register_verification.html.twig',
-      array('form' => $form->createView())
-    );
+    return $this->redirectToRoute('dashboard');
   }
 
   public function registerAction(Request $request)
@@ -224,6 +229,8 @@ class SecurityController extends Controller
 
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
+      $roles = $this->transformRole($user->getRoles());
+      $user->setRoles($roles);
 
       $em = $this->getDoctrine()->getManager();
       $em->persist($user);
@@ -235,7 +242,9 @@ class SecurityController extends Controller
           'Position has been changed! '
       );
 
-      return $this->redirectToRoute('dashboard');
+      return $this->redirectToRoute('employee_position_change', array(
+        'id' => $id,
+      ));
     }
 
     return $this->render(
@@ -249,6 +258,10 @@ class SecurityController extends Controller
     if ($this->get('security.authorization_checker')->isGranted('ROLE_BOSS')) {
       $repository = $this->getDoctrine()->getRepository('UserBundle:User');
       $repository->removeById($id);
+
+      $uri = $request->headers->get('referer');
+
+      return $this->redirect($uri);
     }
 
     return $this->redirectToRoute('dashboard');
@@ -272,5 +285,26 @@ class SecurityController extends Controller
     return $this->render('@User/driver_statistics.html.twig', array(
       'users' => $users,
     ));
+  }
+
+  public function transformRole($role)
+  {
+    $role = implode(',', (array)$role);
+
+    switch($role)
+    {
+      case 'boss': $position = 'ROLE_BOSS'; break;
+      case 'vice boss': $position = 'ROLE_VICEBOSS'; break;
+      case 'dispatcher': $position = 'ROLE_DISPATCHER'; break;
+      case 'driver': $position = 'ROLE_DRIVER'; break;
+      case 'demo': $position = 'ROLE_DEMO'; break;
+      case 'szef': $position = 'ROLE_BOSS'; break;
+      case 'vice szef': $position = 'ROLE_VICEBOSS'; break;
+      case 'dyspozytor': $position = 'ROLE_DISPATCHER'; break;
+      case 'kierowca': $position = 'ROLE_DRIVER'; break;
+      case 'okres testowy': $position = 'ROLE_DEMO'; break;
+    }
+
+    return $position;
   }
 }

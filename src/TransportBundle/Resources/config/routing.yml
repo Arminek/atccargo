@@ -10,6 +10,10 @@ transport_activate:
     path:     /activate/{id}
     defaults: { _controller: TransportBundle:Transport:activateTransport }
 
+transport_deactivate:
+    path:     /deactivate/{id}
+    defaults: { _controller: TransportBundle:Transport:deactivateTransport }
+
 transport_remove:
     path:     /remove/{id}
     defaults: { _controller: TransportBundle:Transport:removeTransport }

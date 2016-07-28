@@ -14,7 +14,6 @@ UserBundle\Entity\User:
                 message: user.email.not.valid
                 checkMX: true
         plainPassword:
-            - NotBlank: ~
             - Length:
                 min: 6
                 minMessage: 'user.plainPassword.min.length'

@@ -3,23 +3,27 @@
 namespace UserBundle\Twig;
 
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class UserExtension extends \Twig_Extension
 {
-  protected $doctrine;
-
-  public function __construct(RegistryInterface $doctrine)
+  public function getFilters()
   {
-    $this->doctrine = $doctrine;
+    return array(
+        new \Twig_SimpleFilter('price', array($this, 'priceFilter')),
+    );
+  }
+
+  public function priceFilter($number, $decimals = 0, $decPoint = '.', $thousandsSep = ',')
+  {
+    $price = number_format($number, $decimals, $decPoint, $thousandsSep);
+    $price = '$'.$price;
+
+    return $price;
   }
 
   public function getName()
   {
     return 'user_extension';
-  }
-
-  public function findAll()
-  {
-    return $this->doctrine->getRepository('UserBundle:User')->findAll();
   }
 }

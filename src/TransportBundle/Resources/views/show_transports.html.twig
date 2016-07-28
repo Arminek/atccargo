@@ -44,6 +44,8 @@
                     <td class="center aligned">
                         {% if transport.active == 0 %}
                             <a class="ui green horizontal large label" href="{{ path('transport_activate', {'id': transport.id}) }}"><i class="check circle icon"></i>Zatwierdź</a>
+                        {% elseif transport.active == 1 %}
+                            <a class="ui orange horizontal large label" href="{{ path('transport_deactivate', {'id': transport.id}) }}"><i class="minus circle icon"></i>Dezaktywuj</a>
                         {% endif %}
                         <a class="ui red horizontal large label" href="{{ path('transport_remove', {'id': transport.id}) }}"><i class="remove circle icon"></i>Usuń</a>
                     </td>

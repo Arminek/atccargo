@@ -110,14 +110,31 @@ class TransportController extends Controller
     return $transportId;
   }
 
-  public function activateTransportAction($id)
+  public function activateTransportAction($id, Request $request)
   {
     if ($this->get('security.authorization_checker')->isGranted('ROLE_DISPATCHER')) {
       $em = $this->getDoctrine()
           ->getRepository('TransportBundle:Transport')
           ->activateById($id);
 
-      return $this->redirectToRoute('transport_browse');
+      $uri = $request->headers->get('referer');
+
+      return $this->redirect($uri);
+    }
+
+    return $this->redirectToRoute('dashboard');
+  }
+
+  public function deactivateTransportAction($id, Request $request)
+  {
+    if ($this->get('security.authorization_checker')->isGranted('ROLE_DISPATCHER')) {
+      $em = $this->getDoctrine()
+          ->getRepository('TransportBundle:Transport')
+          ->deactivateById($id);
+
+      $uri = $request->headers->get('referer');
+
+      return $this->redirect($uri);
     }
 
     return $this->redirectToRoute('dashboard');
@@ -130,7 +147,9 @@ class TransportController extends Controller
           ->getRepository('TransportBundle:Transport')
           ->removeById($id);
 
-      return $this->redirectToRoute('transport_browse');
+      $uri = $request->headers->get('referer');
+
+      return $this->redirect($uri);
     }
 
     return $this->redirectToRoute('dashboard');

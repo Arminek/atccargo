@@ -1,3 +1,7 @@
 services:
     logout_handler:
         class: UserBundle\Services\LogoutHandler
+    user_extension:
+        class: UserBundle\Twig\UserExtension
+        tags:
+            - { name: twig.extension }
