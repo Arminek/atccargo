@@ -15,10 +15,9 @@ class User implements UserInterface, \Serializable
     private $activationCode;
     private $avatar;
     private $roles;
-    private $transports;
 
-    public function __construct() {
-        $this->transports = new ArrayCollection();
+    public function __construct()
+    {
     }
 
     public function getId()

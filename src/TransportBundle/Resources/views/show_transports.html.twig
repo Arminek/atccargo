@@ -38,7 +38,7 @@
                     <td>{{ transport.cargo|capitalize }}</td>
                     <td>{{ transport.weight }} KG</td>
                     <td>{{ transport.distance }} KM</td>
-                    <td><a href="{{ transport.screenshot }}" target="_blank">Otwórz</a></td>
+                    <td><a href="{{ asset('images/screenshots/') }}{{ transport.screenshot }}" target="_blank">Otwórz</a></td>
                     <td>{{ transport.startCity|capitalize }}</td>
                     <td>{{ transport.endCity|capitalize }}</td>
                     <td class="center aligned">

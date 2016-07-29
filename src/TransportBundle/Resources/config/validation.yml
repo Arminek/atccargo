@@ -26,7 +26,7 @@ TransportBundle\Entity\Transport:
                 max: 100
                 minMessage: transport.damage.min.range
                 maxMessage: transport.damage.max.range
-        fuel:
+        burnedFuel:
             - NotBlank: ~
             - Type:
                 type: integer

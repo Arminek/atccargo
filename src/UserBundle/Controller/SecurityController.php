@@ -270,7 +270,7 @@ class SecurityController extends Controller
   public function showDriverListAction()
   {
     $repository = $this->getDoctrine()->getRepository("UserBundle:User");
-    $users = $repository->findAll();
+    $users = $repository->getStatistics();
 
     return $this->render('@User/driver_list.html.twig', array(
       'users' => $users,
@@ -280,7 +280,7 @@ class SecurityController extends Controller
   public function showDriverStatisticsAction()
   {
     $repository = $this->getDoctrine()->getRepository("UserBundle:User");
-    $users = $repository->findAll();
+    $users = $repository->getStatistics();
 
     return $this->render('@User/driver_statistics.html.twig', array(
       'users' => $users,

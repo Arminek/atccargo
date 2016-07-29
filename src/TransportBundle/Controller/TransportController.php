@@ -28,12 +28,22 @@ class TransportController extends Controller
         ));
       }
 
-      $employeeId = $user = $this->get('security.token_storage')->getToken()->getUser()->getId();
+      /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+      $file = $transport->getScreenshot();
+      $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+      $file->move(
+          $this->getParameter('screenshots_directory'),
+          $fileName
+      );
+
+      $transport->setScreenshot($fileName);
+      $userId = $user = $this->get('security.token_storage')->getToken()->getUser()->getId();
       $score = $this->calculateScore($transport->getDistance(), $transport->getDamage());
-      $transportId = $this->generateTransportId();
+      $identificator = $this->generateTransportIdentificator();
       $transport->setScore($score);
-      $transport->setTransportId($transportId);
-      $transport->setEmployeeId($employeeId);
+      $transport->setIdentificator($identificator);
+      $transport->setUserId($userId);
       
       $em = $this->getDoctrine()->getManager();
       $em->persist($transport);
@@ -100,14 +110,14 @@ class TransportController extends Controller
     return $multipler;
   }
 
-  public function generateTransportId()
+  public function generateTransportIdentificator()
   {
     $repository = $this->getDoctrine()->getRepository('TransportBundle:Transport');
     $transportCount = count($repository->findAll());
 
-    $transportId = 'CGGE/'.date('M')[0].'000'.date('WdN').date('z')[0].$transportCount.'/'.date('isd');
+    $identificator = 'CGGE/'.date('M')[0].'000'.date('WdN').date('z')[0].$transportCount.'/'.date('isd');
 
-    return $transportId;
+    return $identificator;
   }
 
   public function activateTransportAction($id, Request $request)

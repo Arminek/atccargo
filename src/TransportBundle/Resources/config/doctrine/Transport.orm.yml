@@ -9,48 +9,40 @@ TransportBundle\Entity\Transport:
             generator:
                 strategy: AUTO
 
-    manyToOne:
-        user:
-            targetEntity: User
-            inversedBy: transports
-            joinColumn:
-                name: id
-                referencedColumnName: employeeId
-
     fields:
+        userId:
+            type: smallint
+        identificator:
+            type: string
+            unique: true
         startCity:
             type: string
         endCity:
             type: string
+        startDate:
+            type: datetime
+        endDate:
+            type: datetime
         cargo:
             type: string
         distance:
             type: integer
         weight:
-            type: integer
+            type: smallint
         damage:
-            type: integer
-        fuel:
-            type: integer
+            type: smallint
+        burnedFuel:
+            type: smallint
         fueled:
-            type: integer
+            type: smallint
         country:
             type: string
         score:
-            type: integer
-        transportId:
-            type: string
-            unique: true
-        userId:
-            type: integer
+            type: smallint
         screenshot:
             type: string
             unique: true
         active:
             type: boolean
-        startDate:
-            type: datetime
-        endDate:
-            type: datetime
 
     lifecycleCallbacks: {  }

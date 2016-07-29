@@ -13,7 +13,6 @@
             <th>Zarobionych pieniędzy</th>
         </tr>
         </thead>
-        <tbody>
         {% for user in users %}
             <tr>
                 <td>
@@ -25,10 +24,10 @@
                             </div>
                     </h4>
                 </td>
-                <td><i class="lightning icon"></i> 2 954 L</td>
-                <td><i class="road icon"></i> 104 856 KM</td>
-                <td><i class="cubes icon"></i> 93</td>
-                <td><i class="money icon"></i> 43 711 PLN</th>
+                <td><i class="lightning icon"></i> {{ user.fuelBurned|number_format(0, '', ' ') }} L</td>
+                <td><i class="road icon"></i> {{ user.distanceTravelled|number_format(0, '', ' ') }} KM</td>
+                <td><i class="cubes icon"></i> {{ user.transportsMaded }}</td>
+                <td><i class="money icon"></i> {{ user.moneyEarned|number_format(2, ',', ' ') }} PLN</th>
             </tr>
         {% endfor %}
         </tbody>

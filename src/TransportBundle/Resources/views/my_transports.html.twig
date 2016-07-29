@@ -21,12 +21,12 @@
             <tr>
                 <td>{{ transport.endDate|date('Y-m-d H:i') }}</td>
                 <td>{{ transport.cargo|capitalize }}</td>
-                <td>{{ transport.weight }} KG</td>
-                <td>{{ transport.distance }} KM</td>
+                <td>{{ transport.weight|number_format(0, '', ' ') }} KG</td>
+                <td>{{ transport.distance|number_format(0, '', ' ') }} KM</td>
                 <td><a href="{{ transport.screenshot }}" target="_blank">Otwórz</a></td>
                 <td>{{ transport.startCity|capitalize }}</td>
                 <td>{{ transport.endCity|capitalize }}</td>
-                <td>{{ transport.transportId }}</td>
+                <td>{{ transport.identificator }}</td>
             </tr>
         {% endfor %}
         </tbody>

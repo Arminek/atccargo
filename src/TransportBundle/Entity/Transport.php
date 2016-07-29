@@ -9,23 +9,22 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Transport
 {
     private $id;
-    private $employeeId;
+    private $userId;
+    private $identificator;
     private $startCity;
     private $endCity;
+    private $startDate;
+    private $endDate;
     private $cargo;
     private $distance;
     private $weight;
     private $damage;
-    private $fuel;
+    private $burnedFuel;
     private $fueled;
     private $country;
     private $score;
-    private $transportId;
     private $screenshot;
     private $active;
-    private $startDate;
-    private $endDate;
-    private $user;
 
     public function __construct()
     {
@@ -37,14 +36,24 @@ class Transport
         return $this->id;
     }
 
-    public function getEmployeeId()
+    public function getUserId()
     {
-        return $this->employeeId;
+        return $this->UserId;
     }
 
-    public function setEmployeeId($employeeId)
+    public function setUserId($userId)
     {
-        $this->employeeId = $employeeId;
+        $this->userId = $userId;
+    }
+
+    public function getIdentificator()
+    {
+        return $this->identificator;
+    }
+
+    public function setIdentificator($identificator)
+    {
+        $this->identificator = $identificator;
     }
 
     public function getStartCity()
@@ -65,6 +74,26 @@ class Transport
     public function setEndCity($endCity)
     {
         $this->endCity = $endCity;
+    }
+
+    public function getStartDate()
+    {
+        return $this->startDate;
+    }
+
+    public function setStartDate($startDate)
+    {
+        $this->startDate = $startDate;
+    }
+
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
+
+    public function setEndDate($endDate)
+    {
+        $this->endDate = $endDate;
     }
 
     public function getCargo()
@@ -107,19 +136,19 @@ class Transport
         $this->damage = $damage;
     }
 
-    public function getFuel()
+    public function getBurnedFuel()
     {
-        return $this->fuel;
+        return $this->burnedFuel;
     }
 
-    public function setFuel($fuel)
+    public function setBurnedFuel($burnedFuel)
     {
-        $this->fuel = $fuel;
+        $this->burnedFuel = $burnedFuel;
     }
 
     public function getFueled()
     {
-        return $this->fuel;
+        return $this->fueled;
     }
 
     public function setFueled($fueled)
@@ -147,16 +176,6 @@ class Transport
         $this->score = $score;
     }
 
-    public function getTransportId()
-    {
-        return $this->transportId;
-    }
-
-    public function setTransportId($transportId)
-    {
-        $this->transportId = $transportId;
-    }
-
     public function getScreenshot()
     {
         return $this->screenshot;
@@ -175,25 +194,5 @@ class Transport
     public function setActive($active)
     {
         $this->active = $active;
-    }
-
-    public function getStartDate()
-    {
-        return $this->startDate;
-    }
-
-    public function setStartDate($startDate)
-    {
-        $this->startDate = $startDate;
-    }
-
-    public function getEndDate()
-    {
-        return $this->endDate;
-    }
-
-    public function setEndDate($endDate)
-    {
-        $this->endDate = $endDate;
     }
 }

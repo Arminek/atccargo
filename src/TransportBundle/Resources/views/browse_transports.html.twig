@@ -29,8 +29,8 @@
           </h4>
         </td>
         <td>{{ transport.cargo|capitalize }}</td>
-        <td>{{ transport.score }} PLN</td>
-        <td><a href="{{ transport.screenshot }}" target="_blank">Otwórz</a></td>
+        <td>{{ transport.score|number_format(2, ',', ' ') }} PLN</td>
+        <td><a href="{{ asset('images/screenshots/') }}{{ transport.screenshot }}" target="_blank">Otwórz</a></td>
         <td>{{ transport.startCity|capitalize }}</td>
         <td>{{ transport.endCity|capitalize }}</td>
         <td>{{ transport.endDate|date('Y-m-d H:i') }}</td>

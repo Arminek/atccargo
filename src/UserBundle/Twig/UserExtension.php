@@ -2,24 +2,25 @@
 
 namespace UserBundle\Twig;
 
-use Symfony\Bridge\Doctrine\RegistryInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class UserExtension extends \Twig_Extension
+class UserExtension extends \Twig_Extension implements \Twig_Extension_GlobalsInterface
 {
-  public function getFilters()
+  private $container;
+
+  public function __construct(ContainerInterface $container)
   {
-    return array(
-        new \Twig_SimpleFilter('price', array($this, 'priceFilter')),
-    );
+    $this->container = $container;
   }
 
-  public function priceFilter($number, $decimals = 0, $decPoint = '.', $thousandsSep = ',')
+  public function getGlobals()
   {
-    $price = number_format($number, $decimals, $decPoint, $thousandsSep);
-    $price = '$'.$price;
-
-    return $price;
+    return array(
+      'fuelBurned'        => 1234,
+      'distanceTravelled' => 1234,
+      'moneyEarned'       => 1234,
+      "transportsMaded"   => 1234,
+    );
   }
 
   public function getName()

@@ -18,13 +18,13 @@ class TransportRepository extends \Doctrine\ORM\EntityRepository
 
   public function findAllById($id) {
     return $this->getEntityManager()
-        ->createQuery("SELECT t FROM TransportBundle:Transport t WHERE t.employeeId = $id ORDER BY t.id ASC")
+        ->createQuery("SELECT t FROM TransportBundle:Transport t WHERE t.userId = $id ORDER BY t.id ASC")
         ->getResult();
   }
 
   public function findNotActivated() {
     return $this->getEntityManager()
-      ->createQuery('SELECT t.id, t.cargo, t.score, t.screenshot, t.startCity, t.endCity, t.endDate, u.username, u.roles, u.avatar FROM TransportBundle:Transport t LEFT JOIN UserBundle:User u WITH t.employeeId = u.id WHERE t.active = 0 ORDER BY t.id ASC')
+      ->createQuery('SELECT t.id, t.cargo, t.score, t.screenshot, t.startCity, t.endCity, t.endDate, u.username, u.roles, u.avatar FROM TransportBundle:Transport t, UserBundle:User u WHERE t.userId = u.id AND t.active = 0 ORDER BY t.id ASC')
       ->getResult();
   }
 
@@ -49,8 +49,15 @@ class TransportRepository extends \Doctrine\ORM\EntityRepository
   public function findFiveById($id)
   {
     return $this->getEntityManager()
-        ->createQuery("SELECT t FROM TransportBundle:Transport t WHERE t.employeeId = $id AND t.active = 1 ORDER BY t.id")
+        ->createQuery("SELECT t FROM TransportBundle:Transport t WHERE t.userId = $id AND t.active = 1 ORDER BY t.id")
         ->setMaxResults(5)
+        ->getResult();
+  }
+
+  public function getFuelBurned($id)
+  {
+    return $this->getEntityManager()
+        ->create("SELECT sum(t.fuelBurned) FROM TransportBundle:Transport t WHERE t.userId = $id")
         ->getResult();
   }
 }

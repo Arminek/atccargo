@@ -9,11 +9,6 @@ UserBundle\Entity\User:
             generator:
                 strategy: AUTO
 
-    oneToMany:
-        transports:
-            targetEntity: Transport
-            mappedBy: user
-
     fields:
         username:
             type: string

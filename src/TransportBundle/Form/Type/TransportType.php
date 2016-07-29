@@ -36,7 +36,7 @@ class TransportType extends AbstractType
           'placeholder' => 'Amount',
         )
       ))
-      ->add('fuel', IntegerType::class, array(
+      ->add('burnedFuel', IntegerType::class, array(
         'attr' => array(
           'placeholder' => 'Amount',
         )

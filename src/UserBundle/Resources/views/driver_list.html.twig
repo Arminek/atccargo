@@ -25,9 +25,9 @@
                             </div>
                     </h4>
                 </td>
-                <td>{#{{ fuel_burned }}#}</td>
-                <td>{#{{ distance_travelled }}#}</td>
-                <td>{#{{ transports_done }}#}</td>
+                <td><i class="lightning icon"></i> {{ user.fuelBurned|number_format(0, '', ' ') }} L</td>
+                <td><i class="road icon"></i> {{ user.distanceTravelled|number_format(0, '', ' ') }} KM</td>
+                <td><i class="cubes icon"></i> {{ user.transportsMaded }}</td>
                 <td class="center aligned"><a class="ui green horizontal large label" href="{{ path('transports_show', {'id': user.id}) }}"><i class="check circle icon"></i>Pokaż transporty</a></td>
             </tr>
         {% endfor %}

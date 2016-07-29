@@ -20,10 +20,10 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
         ->getResult();
   }
 
-  public function getTransportsCount()
+  public function getStatistics()
   {
     return $this->getEntityManager()
-        ->createQuery("SELECT COUNT `*` FROM TransportBundle:Transport t LEFT JOIN UserBundle:User u WHERE t.employeeId = u.id")
+        ->createQuery("SELECT u.id, u.avatar, u.username, u.roles, sum(t.burnedFuel) as fuelBurned, sum(t.distance) as distanceTravelled, count(t.id) AS transportsMaded, sum(t.score) as moneyEarned FROM UserBundle:User u, TransportBundle:Transport t WHERE t.userId = u.id GROUP BY u.id")
         ->getResult();
   }
 }

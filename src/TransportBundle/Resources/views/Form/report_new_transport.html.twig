@@ -499,12 +499,12 @@
           <div class="field">
             <label>{% trans %}Burned fuel{% endtrans %}</label>
             <div class="ui right labeled input">
-              {{ form_widget(form.fuel) }}
+              {{ form_widget(form.burnedFuel) }}
               <div class="ui basic label">
                 L
               </div>
             </div>
-            {{ form_errors(form.fuel) }}
+            {{ form_errors(form.burnedFuel) }}
           </div>
           <div class="field">
             <label>{% trans %}Damage status{% endtrans %}</label>
@@ -516,7 +516,6 @@
             </div>
             {{ form_errors(form.damage) }}
           </div>
-
         </div>
         <h4 class="ui dividing header">{% trans %}Time informations{% endtrans %}</h4>
         <div class="two fields">
@@ -599,7 +598,6 @@
         {{ form_end(form) }}
       </div>
     </div>
-  </div>
   </div>
 
 
