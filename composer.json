@@ -31,7 +31,8 @@
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^3.0"
+        "symfony/phpunit-bridge": "^3.0",
+        "phpspec/phpspec": "^3.0"
     },
     "scripts": {
         "post-install-cmd": [
@@ -50,6 +51,9 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ]
+    },
+    "config": {
+        "bin-dir": "bin"
     },
     "extra": {
         "symfony-app-dir": "app",

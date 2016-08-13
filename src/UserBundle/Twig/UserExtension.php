@@ -6,13 +6,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class UserExtension extends \Twig_Extension implements \Twig_Extension_GlobalsInterface
 {
-  private $container;
-
-  public function __construct(ContainerInterface $container)
-  {
-    $this->container = $container;
-  }
-
   public function getGlobals()
   {
     return array(
