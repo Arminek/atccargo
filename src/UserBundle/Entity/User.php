@@ -7,14 +7,45 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class User implements UserInterface, \Serializable
 {
+    /**
+     * @var mixed
+     */
     private $id;
+
+    /**
+     * @var string
+     */
     private $username;
+
+    /**
+     * @var string
+     */
     private $password;
+
+    /**
+     * @var string
+     */
     private $email;
+
+    /**
+     * @var string
+     */
     private $plainPassword;
+
+    /**
+     * @var ActivationCodeInterface
+     */
     private $activationCode;
+
+    /**
+     * @var mixed
+     */
     private $avatar;
-    private $roles;
+
+    /**
+     * @var array
+     */
+    private $roles = [];
 
     public function __construct()
     {
@@ -70,7 +101,7 @@ class User implements UserInterface, \Serializable
         return $this->activationCode;
     }
 
-    public function setActivationCode($activationCode)
+    public function setActivationCode(ActivationCodeInterface $activationCode)
     {
         $this->activationCode = $activationCode;
     }
@@ -92,7 +123,7 @@ class User implements UserInterface, \Serializable
 
     public function getRoles()
     {
-        return array($this->roles);
+        return $this->roles;
     }
 
     public function setRoles($roles)

@@ -3,6 +3,7 @@
 namespace spec\UserBundle\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
+use UserBundle\Entity\ActivationCodeInterface;
 use UserBundle\Entity\User;
 use PhpSpec\ObjectBehavior;
 
@@ -44,10 +45,10 @@ class UserSpec extends ObjectBehavior
         $this->getEmail()->shouldReturn('john@example.com');
     }
 
-    function it_has_activation_code()
+    function it_has_activation_code(ActivationCodeInterface $activationCode)
     {
-        $this->setActivationCode('xyz');
+        $this->setActivationCode($activationCode);
 
-        $this->getActivationCode()->shouldReturn('xyz');
+        $this->getActivationCode()->shouldReturn($activationCode);
     }
 }
