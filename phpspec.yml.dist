@@ -1,0 +1,18 @@
+suites:
+    App:
+        namespace: AppBundle
+        psr4_prefix: AppBundle
+        spec_path: src/AppBundle
+        src_path: src/AppBundle
+
+    TransportBundle:
+        namespace: TransportBundle
+        psr4_prefix: TransportBundle
+        spec_path: src/TransportBundle
+        src_path: src/TransportBundle
+
+    UserBundle:
+        namespace: UserBundle
+        psr4_prefix: UserBundle
+        spec_path: src/UserBundle
+        src_path: src/UserBundle
