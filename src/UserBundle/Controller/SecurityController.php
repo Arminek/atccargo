@@ -140,13 +140,11 @@ class SecurityController extends Controller
 
   public function employeeAddAction(Request $request)
   {
-    $activationCode = new ActivationCode();
+    $activationCode = $this->get('user.generator.registration_code')->generate();
     $form = $this->createForm(ActivationCodeType::class, $activationCode);
 
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
-
-      $registrationCode = $activationCode->generateRegistrationCode();
       $role = $activationCode->getRole();
 
       $message = \Swift_Message::newInstance()
@@ -157,7 +155,7 @@ class SecurityController extends Controller
           $this->renderView(
             '@User/email/registration_code.twig',
             array(
-              'code' => $registrationCode,
+              'code' => $activationCode->getActivationCode(),
               'role' => $role,
             )
           ),
@@ -166,7 +164,6 @@ class SecurityController extends Controller
       ;
 
       // Add registration code to database.
-      $activationCode->setActivationCode($registrationCode);
       $activationCode->setRole($this->transformRole($role));
       $em = $this->getDoctrine()->getManager();
       $em->persist($activationCode);

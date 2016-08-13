@@ -1,7 +1,15 @@
 services:
     logout_handler:
         class: UserBundle\Services\LogoutHandler
+
     user_extension:
         class: UserBundle\Twig\UserExtension
         tags:
             - { name: twig.extension }
+
+    user.factory.activation_code:
+        class: UserBundle\Factory\ActivationCodeFactory
+
+    user.generator.registration_code:
+        class: UserBundle\Activation\Generator\RegistrationCodeGenerator
+        arguments: ['@user.factory.activation_code']

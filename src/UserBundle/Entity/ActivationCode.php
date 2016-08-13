@@ -79,10 +79,5 @@ class ActivationCode implements ActivationCodeInterface
     {
         $this->activationCode = $activationCode;
     }
-
-    public function generateRegistrationCode()
-    {
-        return rand(1000, 9999);
-    }
 }
 
